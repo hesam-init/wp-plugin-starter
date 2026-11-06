@@ -155,27 +155,30 @@ function seconds(value: string): string {
 }
 
 function buildSections(status: Status): Section[] {
-  const { plugin, wordpress: wp, server, database } = status;
-  const dbUpToDate = plugin.dbVersionInstalled === plugin.dbVersion;
+  // The Plugin section is hidden. To restore it, add `plugin` back to this
+  // destructuring and uncomment the block below and the section in the list.
+  const { wordpress: wp, server, database } = status;
   const extensions = Object.entries(server.extensions);
   const missing = extensions.filter(([, loaded]) => !loaded).map(([name]) => name);
 
-  const itemsText = plugin.itemsTable.exists
-    ? sprintf(
-        /* translators: %s: number of rows. */
-        _n('%s row', '%s rows', plugin.itemsTable.rows, 'wp-plugin-starter'),
-        formatNumber(plugin.itemsTable.rows),
-      )
-    : __('Missing', 'wp-plugin-starter');
-
-  const dbText = dbUpToDate
-    ? plugin.dbVersion
-    : sprintf(
-        /* translators: 1: installed schema version, 2: expected schema version. */
-        __('%1$s (expected %2$s)', 'wp-plugin-starter'),
-        plugin.dbVersionInstalled ?? __('not installed', 'wp-plugin-starter'),
-        plugin.dbVersion,
-      );
+  // const dbUpToDate = plugin.dbVersionInstalled === plugin.dbVersion;
+  //
+  // const itemsText = plugin.itemsTable.exists
+  //   ? sprintf(
+  //       /* translators: %s: number of rows. */
+  //       _n('%s row', '%s rows', plugin.itemsTable.rows, 'wp-plugin-starter'),
+  //       formatNumber(plugin.itemsTable.rows),
+  //     )
+  //   : __('Missing', 'wp-plugin-starter');
+  //
+  // const dbText = dbUpToDate
+  //   ? plugin.dbVersion
+  //   : sprintf(
+  //       /* translators: 1: installed schema version, 2: expected schema version. */
+  //       __('%1$s (expected %2$s)', 'wp-plugin-starter'),
+  //       plugin.dbVersionInstalled ?? __('not installed', 'wp-plugin-starter'),
+  //       plugin.dbVersion,
+  //     );
 
   return [
     {

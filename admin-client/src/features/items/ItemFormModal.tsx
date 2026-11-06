@@ -9,9 +9,9 @@ import {
   ItemInputSchema,
   itemStatusLabels,
 } from '@/api/schemas';
+import { ErrorNotice } from '@/components/ErrorNotice';
 import { useNotices } from '@/components/notices-context';
 import { useCreateItem, useUpdateItem } from '@/hooks/useItems';
-import { ErrorNotice } from '@/components/ErrorNotice';
 
 interface Props {
   /** Item to edit; omit to create a new one. */
