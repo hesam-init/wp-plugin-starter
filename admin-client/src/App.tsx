@@ -1,9 +1,10 @@
-import { TabPanel } from '@wordpress/components';
-import { __, sprintf } from '@wordpress/i18n';
 import { ItemsPage } from '@/features/items/ItemsPage';
 import { SettingsPage } from '@/features/settings/SettingsPage';
+import { StatusPage } from '@/features/status/StatusPage';
 import { useSettings } from '@/hooks/useSettings';
 import { config } from '@/lib/config';
+import { TabPanel } from '@wordpress/components';
+import { __, sprintf } from '@wordpress/i18n';
 
 // Translated at module load — wp.i18n already has the locale data by then.
 const TABS = [
@@ -18,6 +19,7 @@ const initialTab = TABS.some((t) => `#${t.name}` === window.location.hash)
 
 export function App() {
   const { data: settings } = useSettings();
+
 
   return (
     <div className="tw:mt-4 tw:flex tw:flex-col tw:gap-4">
@@ -36,13 +38,20 @@ export function App() {
         </span>
       </header>
 
-      <TabPanel
-        tabs={TABS.map(({ name, title }) => ({ name, title }))}
-        initialTabName={initialTab}
-        onSelect={(name) => window.history.replaceState(null, '', `#${name}`)}
-      >
-        {(tab) => <div className="tw:pt-4">{TABS.find((t) => t.name === tab.name)?.render()}</div>}
-      </TabPanel>
+      {/* Each wp-admin submenu page mounts this app; PHP says which one (config.screen). */}
+      {config.screen === 'status' ? (
+        <StatusPage />
+      ) : (
+        <TabPanel
+          tabs={TABS.map(({ name, title }) => ({ name, title }))}
+          initialTabName={initialTab}
+          onSelect={(name) => window.history.replaceState(null, '', `#${name}`)}
+        >
+          {(tab) => (
+            <div className="tw:pt-4">{TABS.find((t) => t.name === tab.name)?.render()}</div>
+          )}
+        </TabPanel>
+      )}
     </div>
   );
 }

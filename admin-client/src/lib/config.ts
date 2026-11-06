@@ -15,6 +15,8 @@ const ConfigSchema = z.object({
   pluginUrl: z.url(),
   /** WordPress locale of the current user, e.g. `fa_IR`. */
   locale: z.string(),
+  /** Which admin screen is mounting the app (AdminPage::$screens in PHP). */
+  screen: z.enum(['main', 'status']),
   user: z.object({
     id: z.number().int(),
     displayName: z.string(),

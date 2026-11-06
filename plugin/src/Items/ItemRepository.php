@@ -24,8 +24,8 @@ defined( 'ABSPATH' ) || exit;
  */
 final class ItemRepository {
 
-	public const STATUSES    = array( 'draft', 'published' );
-	public const ORDERABLE   = array( 'id', 'title', 'status', 'created_at', 'updated_at' );
+	public const STATUSES     = array( 'draft', 'published' );
+	public const ORDERABLE    = array( 'id', 'title', 'status', 'created_at', 'updated_at' );
 	private const CACHE_GROUP = 'wp_plugin_starter_items';
 
 	/**
@@ -177,6 +177,26 @@ final class ItemRepository {
 		wp_cache_delete( $id, self::CACHE_GROUP );
 
 		return (bool) $deleted;
+	}
+
+	/**
+	 * Whether the items table exists (used by the status report).
+	 */
+	public function table_exists(): bool {
+		global $wpdb;
+
+		$table = Installer::items_table();
+
+		return $table === $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $wpdb->esc_like( $table ) ) );
+	}
+
+	/**
+	 * Total number of items, regardless of status.
+	 */
+	public function count(): int {
+		global $wpdb;
+
+		return (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i', Installer::items_table() ) );
 	}
 
 	/**

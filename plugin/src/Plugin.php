@@ -16,7 +16,9 @@ use WpPluginStarter\Items\ItemRepository;
 use WpPluginStarter\Rest\ItemsController;
 use WpPluginStarter\Rest\RestApi;
 use WpPluginStarter\Rest\SettingsController;
+use WpPluginStarter\Rest\StatusController;
 use WpPluginStarter\Settings\Settings;
+use WpPluginStarter\Status\StatusReport;
 use WpPluginStarter\Support\Vite;
 
 defined( 'ABSPATH' ) || exit;
@@ -70,14 +72,15 @@ final class Plugin {
 
 		$settings = new Settings();
 		$items    = new ItemRepository();
+		$vite     = new Vite( WP_PLUGIN_STARTER_DIR . 'assets/dist/', WP_PLUGIN_STARTER_URL . 'assets/dist/' );
 
 		( new RestApi(
 			new SettingsController( $settings ),
-			new ItemsController( $items )
+			new ItemsController( $items ),
+			new StatusController( new StatusReport( $vite, $items ) )
 		) )->register();
 
 		if ( is_admin() ) {
-			$vite = new Vite( WP_PLUGIN_STARTER_DIR . 'assets/dist/', WP_PLUGIN_STARTER_URL . 'assets/dist/' );
 			( new AdminPage( new Assets( $vite ) ) )->register();
 		}
 	}

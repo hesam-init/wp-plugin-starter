@@ -7,44 +7,483 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-05T22:05:43+00:00\n"
+"POT-Creation-Date: 2026-11-06T10:02:04+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-plugin-starter\n"
 
-#: wp-plugin-starter.php
+#: admin-client/src/App.tsx:11
+msgid "Items"
+msgstr ""
+
+#: admin-client/src/App.tsx:12
+#: src/Admin/AdminPage.php:141
+msgid "Settings"
+msgstr ""
+
+#. translators: %s: plugin version number.
+#: admin-client/src/App.tsx:35
+msgid "Version %s"
+msgstr ""
+
+#: admin-client/src/api/client.ts:74
+#: admin-client/src/components/ErrorNotice.tsx:11
+msgid "Something went wrong."
+msgstr ""
+
+#: admin-client/src/api/client.ts:79
+msgid "This field is required."
+msgstr ""
+
+#: admin-client/src/api/client.ts:128
+msgid "Unexpected response from the server."
+msgstr ""
+
+#: admin-client/src/api/schemas.ts:14
+msgid "Keep it under 200 characters."
+msgstr ""
+
+#: admin-client/src/api/schemas.ts:26
+msgid "Draft"
+msgstr ""
+
+#: admin-client/src/api/schemas.ts:27
+msgid "Published"
+msgstr ""
+
+#: admin-client/src/api/schemas.ts:43
+msgid "Title is required."
+msgstr ""
+
+#: admin-client/src/components/ErrorNotice.tsx:19
+msgid "Retry"
+msgstr ""
+
+#: admin-client/src/components/LoadingState.tsx:8
+msgid "Loading…"
+msgstr ""
+
+#: admin-client/src/features/items/DeleteItemModal.tsx:13
+msgid "Delete item?"
+msgstr ""
+
+#: admin-client/src/features/items/DeleteItemModal.tsx:19
+msgid "This item will be permanently deleted."
+msgstr ""
+
+#: admin-client/src/features/items/DeleteItemModal.tsx:24
+#: admin-client/src/features/items/ItemFormModal.tsx:109
+msgid "Cancel"
+msgstr ""
+
+#: admin-client/src/features/items/DeleteItemModal.tsx:35
+msgid "Item deleted."
+msgstr ""
+
+#: admin-client/src/features/items/DeleteItemModal.tsx:41
+#: admin-client/src/features/items/ItemsPage.tsx:135
+msgid "Delete"
+msgstr ""
+
+#: admin-client/src/features/items/ItemFormModal.tsx:52
+msgid "Item updated."
+msgstr ""
+
+#: admin-client/src/features/items/ItemFormModal.tsx:53
+msgid "Item created."
+msgstr ""
+
+#: admin-client/src/features/items/ItemFormModal.tsx:68
+msgid "Edit item"
+msgstr ""
+
+#: admin-client/src/features/items/ItemFormModal.tsx:68
+#: admin-client/src/features/items/ItemsPage.tsx:81
+msgid "Add item"
+msgstr ""
+
+#: admin-client/src/features/items/ItemFormModal.tsx:78
+#: admin-client/src/features/items/ItemsPage.tsx:97
+msgid "Title"
+msgstr ""
+
+#: admin-client/src/features/items/ItemFormModal.tsx:87
+msgid "Content"
+msgstr ""
+
+#: admin-client/src/features/items/ItemFormModal.tsx:97
+#: admin-client/src/features/items/ItemsPage.tsx:61
+#: admin-client/src/features/items/ItemsPage.tsx:98
+#: src/Admin/AdminPage.php:82
+#: src/Admin/AdminPage.php:83
+msgid "Status"
+msgstr ""
+
+#: admin-client/src/features/items/ItemFormModal.tsx:119
+msgid "Save changes"
+msgstr ""
+
+#: admin-client/src/features/items/ItemFormModal.tsx:120
+msgid "Create item"
+msgstr ""
+
+#: admin-client/src/features/items/ItemsPage.tsx:49
+msgid "Search items"
+msgstr ""
+
+#: admin-client/src/features/items/ItemsPage.tsx:65
+msgid "All statuses"
+msgstr ""
+
+#: admin-client/src/features/items/ItemsPage.tsx:89
+msgid "Loading items…"
+msgstr ""
+
+#: admin-client/src/features/items/ItemsPage.tsx:99
+msgid "Updated"
+msgstr ""
+
+#: admin-client/src/features/items/ItemsPage.tsx:100
+msgid "Actions"
+msgstr ""
+
+#: admin-client/src/features/items/ItemsPage.tsx:107
+msgid "No items found."
+msgstr ""
+
+#: admin-client/src/features/items/ItemsPage.tsx:127
+msgid "Edit"
+msgstr ""
+
+#. translators: %s: number of items.
+#: admin-client/src/features/items/ItemsPage.tsx:148
+msgid "%s item"
+msgid_plural "%s items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin-client/src/features/items/ItemsPage.tsx:159
+msgid "Previous"
+msgstr ""
+
+#. translators: 1: current page number, 2: total number of pages.
+#: admin-client/src/features/items/ItemsPage.tsx:164
+msgid "Page %1$s of %2$s"
+msgstr ""
+
+#: admin-client/src/features/items/ItemsPage.tsx:175
+msgid "Next"
+msgstr ""
+
+#: admin-client/src/features/settings/SettingsPage.tsx:52
+msgid "Settings saved."
+msgstr ""
+
+#: admin-client/src/features/settings/SettingsPage.tsx:64
+msgid "General"
+msgstr ""
+
+#: admin-client/src/features/settings/SettingsPage.tsx:74
+msgid "Welcome message"
+msgstr ""
+
+#: admin-client/src/features/settings/SettingsPage.tsx:77
+msgid "Shown at the top of the plugin page."
+msgstr ""
+
+#: admin-client/src/features/settings/SettingsPage.tsx:86
+msgid "Items per page"
+msgstr ""
+
+#: admin-client/src/features/settings/SettingsPage.tsx:97
+msgid "Mode"
+msgstr ""
+
+#: admin-client/src/features/settings/SettingsPage.tsx:101
+msgid "Simple"
+msgstr ""
+
+#: admin-client/src/features/settings/SettingsPage.tsx:102
+msgid "Advanced"
+msgstr ""
+
+#: admin-client/src/features/settings/SettingsPage.tsx:109
+msgid "Delete all plugin data when the plugin is deleted"
+msgstr ""
+
+#: admin-client/src/features/settings/SettingsPage.tsx:110
+msgid "Leave off unless you are sure — this drops the items table."
+msgstr ""
+
+#: admin-client/src/features/settings/SettingsPage.tsx:129
+msgid "Reset"
+msgstr ""
+
+#: admin-client/src/features/settings/SettingsPage.tsx:138
+msgid "Save settings"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:36
+msgid "Status report copied to the clipboard."
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:39
+msgid "Could not copy the report. Your browser blocked clipboard access."
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:51
+msgid "Information about your site and server, useful for debugging and support requests."
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:64
+msgid "Refresh"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:67
+msgid "Copy report"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:102
+msgid "Yes"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:102
+msgid "No"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:105
+msgid "Enabled"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:105
+msgid "Disabled"
+msgstr ""
+
+#. translators: %s: minimum required version number.
+#: admin-client/src/features/status/StatusPage.tsx:125
+msgid "requires %s or later"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:144
+#: admin-client/src/features/status/StatusPage.tsx:149
+msgid "Unlimited"
+msgstr ""
+
+#. translators: %s: number of seconds.
+#: admin-client/src/features/status/StatusPage.tsx:152
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: number of rows.
+#: admin-client/src/features/status/StatusPage.tsx:166
+msgid "%s row"
+msgid_plural "%s rows"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin-client/src/features/status/StatusPage.tsx:169
+msgid "Missing"
+msgstr ""
+
+#. translators: 1: installed schema version, 2: expected schema version.
+#: admin-client/src/features/status/StatusPage.tsx:175
+msgid "%1$s (expected %2$s)"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:176
+msgid "not installed"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:183
+msgid "Plugin"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:185
+#: admin-client/src/features/status/StatusPage.tsx:209
+#: admin-client/src/features/status/StatusPage.tsx:281
+msgid "Version"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:187
+msgid "Database schema"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:192
+msgid "Items table"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:197
+msgid "Assets"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:200
+msgid "Vite dev server (HMR)"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:201
+msgid "Production build"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:207
+msgid "WordPress"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:210
+msgid "Site URL"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:211
+msgid "Home URL"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:212
+msgid "Multisite"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:213
+msgid "Environment"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:214
+msgid "Language"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:215
+msgid "Timezone"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:217
+msgid "Permalinks"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:218
+msgid "Plain"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:220
+msgid "Debug mode"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:221
+msgid "WP memory limit"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:222
+msgid "WP-Cron"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:224
+msgid "Active theme"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:227
+msgid "Active plugins"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:232
+msgid "Server & PHP"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:234
+msgid "PHP version"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:235
+msgid "PHP SAPI"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:237
+msgid "Web server"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:238
+msgid "Unknown"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:240
+msgid "PHP memory limit"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:242
+msgid "Max execution time"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:245
+msgid "Max upload size"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:246
+msgid "Max POST size"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:248
+msgid "Extensions"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:251
+msgid "All loaded"
+msgstr ""
+
+#. translators: %s: comma-separated list of PHP extension names.
+#: admin-client/src/features/status/StatusPage.tsx:254
+msgid "Missing: %s"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:278
+msgid "Database"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:280
+msgid "Server"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:282
+msgid "Table prefix"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:283
+msgid "Charset"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:284
+msgid "Collation"
+msgstr ""
+
 #. Plugin Name of the plugin
+#: wp-plugin-starter.php
 msgid "WP Plugin Starter"
 msgstr ""
 
-#: wp-plugin-starter.php
 #. Plugin URI of the plugin
+#: wp-plugin-starter.php
 msgid "https://example.com/wp-plugin-starter"
 msgstr ""
 
-#: wp-plugin-starter.php
 #. Description of the plugin
+#: wp-plugin-starter.php
 msgid "A modern WordPress plugin starter built with React, TypeScript and Vite."
 msgstr ""
 
-#: wp-plugin-starter.php
 #. Author of the plugin
+#: wp-plugin-starter.php
 msgid "Your Name"
 msgstr ""
 
-#: wp-plugin-starter.php
 #. Author URI of the plugin
+#: wp-plugin-starter.php
 msgid "https://example.com"
 msgstr ""
 
-#: src/Admin/AdminPage.php:92
-msgid "Admin assets are missing. Run \"make dev\" (development) or \"make build\" (production)."
+#: src/Admin/AdminPage.php:74
+msgid "Dashboard"
 msgstr ""
 
-#: src/Admin/AdminPage.php:108
-#: admin-client/src/App.tsx:11
-msgid "Settings"
+#: src/Admin/AdminPage.php:125
+msgid "Admin assets are missing. Run \"make dev\" (development) or \"make build\" (production)."
 msgstr ""
 
 #: src/Items/ItemRepository.php:136
@@ -111,6 +550,22 @@ msgstr ""
 msgid "Item not found."
 msgstr ""
 
+#: src/Rest/StatusController.php:110
+msgid "This plugin."
+msgstr ""
+
+#: src/Rest/StatusController.php:134
+msgid "WordPress installation."
+msgstr ""
+
+#: src/Rest/StatusController.php:151
+msgid "Web server and PHP."
+msgstr ""
+
+#: src/Rest/StatusController.php:164
+msgid "Database server."
+msgstr ""
+
 #: src/Settings/Settings.php:32
 msgid "Message shown at the top of the plugin page."
 msgstr ""
@@ -131,205 +586,8 @@ msgstr ""
 msgid "Remove all plugin data when the plugin is deleted."
 msgstr ""
 
-#: wp-plugin-starter.php:40
 #. translators: 1: plugin name, 2: required PHP version.
+#: wp-plugin-starter.php:40
+#, php-format
 msgid "%1$s requires PHP %2$s or newer."
 msgstr ""
-
-#: admin-client/src/App.tsx:10
-msgid "Items"
-msgstr ""
-
-#: admin-client/src/App.tsx:34
-#. translators: %s: plugin version number.
-msgid "Version %s"
-msgstr ""
-
-#: admin-client/src/api/client.ts:74 admin-client/src/components/ErrorNotice.tsx:11
-msgid "Something went wrong."
-msgstr ""
-
-#: admin-client/src/api/client.ts:79
-msgid "This field is required."
-msgstr ""
-
-#: admin-client/src/api/client.ts:128
-msgid "Unexpected response from the server."
-msgstr ""
-
-#: admin-client/src/api/schemas.ts:13
-msgid "Keep it under 200 characters."
-msgstr ""
-
-#: admin-client/src/api/schemas.ts:25
-msgid "Draft"
-msgstr ""
-
-#: admin-client/src/api/schemas.ts:26
-msgid "Published"
-msgstr ""
-
-#: admin-client/src/api/schemas.ts:42
-msgid "Title is required."
-msgstr ""
-
-#: admin-client/src/components/ErrorNotice.tsx:19
-msgid "Retry"
-msgstr ""
-
-#: admin-client/src/components/LoadingState.tsx:8
-msgid "Loading…"
-msgstr ""
-
-#: admin-client/src/features/items/DeleteItemModal.tsx:13
-msgid "Delete item?"
-msgstr ""
-
-#: admin-client/src/features/items/DeleteItemModal.tsx:19
-msgid "This item will be permanently deleted."
-msgstr ""
-
-#: admin-client/src/features/items/DeleteItemModal.tsx:24 admin-client/src/features/items/ItemFormModal.tsx:109
-msgid "Cancel"
-msgstr ""
-
-#: admin-client/src/features/items/DeleteItemModal.tsx:35
-msgid "Item deleted."
-msgstr ""
-
-#: admin-client/src/features/items/DeleteItemModal.tsx:41 admin-client/src/features/items/ItemsPage.tsx:135
-msgid "Delete"
-msgstr ""
-
-#: admin-client/src/features/items/ItemFormModal.tsx:52
-msgid "Item updated."
-msgstr ""
-
-#: admin-client/src/features/items/ItemFormModal.tsx:53
-msgid "Item created."
-msgstr ""
-
-#: admin-client/src/features/items/ItemFormModal.tsx:68
-msgid "Edit item"
-msgstr ""
-
-#: admin-client/src/features/items/ItemFormModal.tsx:68 admin-client/src/features/items/ItemsPage.tsx:81
-msgid "Add item"
-msgstr ""
-
-#: admin-client/src/features/items/ItemFormModal.tsx:78 admin-client/src/features/items/ItemsPage.tsx:97
-msgid "Title"
-msgstr ""
-
-#: admin-client/src/features/items/ItemFormModal.tsx:87
-msgid "Content"
-msgstr ""
-
-#: admin-client/src/features/items/ItemFormModal.tsx:97 admin-client/src/features/items/ItemsPage.tsx:61 admin-client/src/features/items/ItemsPage.tsx:98
-msgid "Status"
-msgstr ""
-
-#: admin-client/src/features/items/ItemFormModal.tsx:119
-msgid "Save changes"
-msgstr ""
-
-#: admin-client/src/features/items/ItemFormModal.tsx:120
-msgid "Create item"
-msgstr ""
-
-#: admin-client/src/features/items/ItemsPage.tsx:49
-msgid "Search items"
-msgstr ""
-
-#: admin-client/src/features/items/ItemsPage.tsx:65
-msgid "All statuses"
-msgstr ""
-
-#: admin-client/src/features/items/ItemsPage.tsx:89
-msgid "Loading items…"
-msgstr ""
-
-#: admin-client/src/features/items/ItemsPage.tsx:99
-msgid "Updated"
-msgstr ""
-
-#: admin-client/src/features/items/ItemsPage.tsx:100
-msgid "Actions"
-msgstr ""
-
-#: admin-client/src/features/items/ItemsPage.tsx:107
-msgid "No items found."
-msgstr ""
-
-#: admin-client/src/features/items/ItemsPage.tsx:127
-msgid "Edit"
-msgstr ""
-
-#: admin-client/src/features/items/ItemsPage.tsx:148
-#. translators: %s: number of items.
-msgid "%s item"
-msgid_plural "%s items"
-msgstr[0] ""
-msgstr[1] ""
-
-#: admin-client/src/features/items/ItemsPage.tsx:159
-msgid "Previous"
-msgstr ""
-
-#: admin-client/src/features/items/ItemsPage.tsx:164
-#. translators: 1: current page number, 2: total number of pages.
-msgid "Page %1$s of %2$s"
-msgstr ""
-
-#: admin-client/src/features/items/ItemsPage.tsx:175
-msgid "Next"
-msgstr ""
-
-#: admin-client/src/features/settings/SettingsPage.tsx:52
-msgid "Settings saved."
-msgstr ""
-
-#: admin-client/src/features/settings/SettingsPage.tsx:64
-msgid "General"
-msgstr ""
-
-#: admin-client/src/features/settings/SettingsPage.tsx:74
-msgid "Welcome message"
-msgstr ""
-
-#: admin-client/src/features/settings/SettingsPage.tsx:77
-msgid "Shown at the top of the plugin page."
-msgstr ""
-
-#: admin-client/src/features/settings/SettingsPage.tsx:86
-msgid "Items per page"
-msgstr ""
-
-#: admin-client/src/features/settings/SettingsPage.tsx:97
-msgid "Mode"
-msgstr ""
-
-#: admin-client/src/features/settings/SettingsPage.tsx:101
-msgid "Simple"
-msgstr ""
-
-#: admin-client/src/features/settings/SettingsPage.tsx:102
-msgid "Advanced"
-msgstr ""
-
-#: admin-client/src/features/settings/SettingsPage.tsx:109
-msgid "Delete all plugin data when the plugin is deleted"
-msgstr ""
-
-#: admin-client/src/features/settings/SettingsPage.tsx:110
-msgid "Leave off unless you are sure — this drops the items table."
-msgstr ""
-
-#: admin-client/src/features/settings/SettingsPage.tsx:129
-msgid "Reset"
-msgstr ""
-
-#: admin-client/src/features/settings/SettingsPage.tsx:138
-msgid "Save settings"
-msgstr ""
-

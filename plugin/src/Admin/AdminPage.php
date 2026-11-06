@@ -18,15 +18,16 @@ defined( 'ABSPATH' ) || exit;
  */
 final class AdminPage {
 
-	public const MENU_SLUG = 'wp-plugin-starter';
-	public const ROOT_ID   = 'wp-plugin-starter-root';
+	public const MENU_SLUG   = 'wp-plugin-starter';
+	public const STATUS_SLUG = 'wp-plugin-starter-status';
+	public const ROOT_ID     = 'wp-plugin-starter-root';
 
 	/**
-	 * Hook suffix returned by add_menu_page().
+	 * Hook suffix of each of our pages → screen name passed to the React app.
 	 *
-	 * @var string
+	 * @var array<string, string>
 	 */
-	private string $hook_suffix = '';
+	private array $screens = array();
 
 	/**
 	 * Whether the build was found.
@@ -51,32 +52,64 @@ final class AdminPage {
 	}
 
 	/**
-	 * Add the top-level menu page.
+	 * Add the top-level menu page and its submenus.
 	 */
 	public function add_menu(): void {
-		$this->hook_suffix = (string) add_menu_page(
+		$capability = Plugin::capability();
+
+		$main = (string) add_menu_page(
 			Plugin::NAME, // Brand names usually stay untranslated.
 			Plugin::NAME,
-			Plugin::capability(),
+			$capability,
 			self::MENU_SLUG,
 			array( $this, 'render' ),
 			'dashicons-admin-generic',
 			80
 		);
 
-		// Only load assets on our own screen.
-		add_action( 'load-' . $this->hook_suffix, array( $this, 'on_load' ) );
+		// Same slug as the parent: renames the auto-generated first submenu entry.
+		add_submenu_page(
+			self::MENU_SLUG,
+			Plugin::NAME,
+			__( 'Dashboard', 'wp-plugin-starter' ),
+			$capability,
+			self::MENU_SLUG,
+			array( $this, 'render' )
+		);
+
+		$status = (string) add_submenu_page(
+			self::MENU_SLUG,
+			__( 'Status', 'wp-plugin-starter' ),
+			__( 'Status', 'wp-plugin-starter' ),
+			$capability,
+			self::STATUS_SLUG,
+			array( $this, 'render' )
+		);
+
+		$this->screens = array_filter(
+			array(
+				$main   => 'main',
+				$status => 'status',
+			),
+			static fn ( $hook ): bool => '' !== $hook,
+			ARRAY_FILTER_USE_KEY
+		);
+
+		// Only load assets on our own screens.
+		foreach ( array_keys( $this->screens ) as $hook_suffix ) {
+			add_action( 'load-' . $hook_suffix, array( $this, 'on_load' ) );
+		}
 	}
 
 	/**
-	 * Fires before our screen renders.
+	 * Fires before one of our screens renders.
 	 */
 	public function on_load(): void {
 		add_action(
 			'admin_enqueue_scripts',
 			function ( string $hook ): void {
-				if ( $hook === $this->hook_suffix ) {
-					$this->assets_ready = $this->assets->enqueue();
+				if ( isset( $this->screens[ $hook ] ) ) {
+					$this->assets_ready = $this->assets->enqueue( $this->screens[ $hook ] );
 				}
 			}
 		);

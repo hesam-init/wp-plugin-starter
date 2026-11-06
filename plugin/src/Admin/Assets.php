@@ -38,8 +38,10 @@ final class Assets {
 
 	/**
 	 * Enqueue the app. Returns false if the build is missing.
+	 *
+	 * @param string $screen Which screen the app renders ('main' or 'status').
 	 */
-	public function enqueue(): bool {
+	public function enqueue( string $screen = 'main' ): bool {
 		if ( ! $this->vite->enqueue( self::HANDLE, self::WP_DEPENDENCIES ) ) {
 			return false;
 		}
@@ -49,7 +51,7 @@ final class Assets {
 		// Classic inline script printed *before* the module, so config is ready on boot.
 		wp_add_inline_script(
 			self::HANDLE,
-			sprintf( 'window.%s = %s;', self::JS_GLOBAL, wp_json_encode( $this->config() ) ),
+			sprintf( 'window.%s = %s;', self::JS_GLOBAL, wp_json_encode( $this->config( $screen ) ) ),
 			'before'
 		);
 
@@ -79,9 +81,10 @@ final class Assets {
 	 * Data the React app validates with zod (see admin-client/src/lib/config.ts).
 	 * REST root + nonce are not needed: WordPress configures wp.apiFetch.
 	 *
+	 * @param string $screen Which screen the app renders.
 	 * @return array<string, mixed>
 	 */
-	private function config(): array {
+	private function config( string $screen ): array {
 		$user = wp_get_current_user();
 
 		return array(
@@ -91,6 +94,7 @@ final class Assets {
 			'adminUrl'      => admin_url(),
 			'pluginUrl'     => WP_PLUGIN_STARTER_URL,
 			'locale'        => determine_locale(),
+			'screen'        => $screen,
 			'user'          => array(
 				'id'          => $user->ID,
 				'displayName' => $user->display_name,

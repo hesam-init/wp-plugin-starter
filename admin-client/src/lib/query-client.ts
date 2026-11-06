@@ -18,6 +18,7 @@ export const queryClient = new QueryClient({
 /** Central query-key factory — keeps invalidation consistent. */
 export const queryKeys = {
   settings: ['settings'] as const,
+  status: ['status'] as const,
   items: {
     all: ['items'] as const,
     list: (query: ItemsQuery) => ['items', 'list', query] as const,

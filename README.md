@@ -65,7 +65,7 @@ Then open **http://localhost:8080/wp-admin** and log in with `admin` / `admin`. 
         ├── App.tsx           # tabs (state kept in the URL hash)
         ├── api/              # api-fetch client, zod schemas, typed endpoint functions
         ├── hooks/            # React Query hooks (useItems, useSettings…)
-        ├── features/         # one folder per screen (items/, settings/)
+        ├── features/         # one folder per screen (items/, settings/, status/)
         ├── components/       # shared UI (notices, error/loading states)
         ├── lib/              # boot config (zod-validated), i18n helpers, query client & keys
         └── wp-globals/       # @wordpress/i18n + api-fetch → WordPress' wp.i18n / wp.apiFetch
@@ -157,6 +157,7 @@ Practices this code demonstrates:
 - **Every call is validated.** `api/client.ts` requests with `parse: false` (to read `X-WP-Total` headers), validates the JSON body with zod and turns WP errors into an `ApiError`. When the nonce expires (`rest_cookie_invalid_nonce`), it fetches a new one from `apiFetch.nonceEndpoint` once and retries.
 - **The repository keeps SQL in one class.** It uses `$wpdb->prepare()` everywhere, including `%i` for identifiers, an allow-list for `ORDER BY`, and an object cache for single rows.
 - **The schema is versioned.** Raise `Installer::DB_VERSION` and `dbDelta` migrates the table on the next request.
+- **Each submenu page mounts the same app.** `Admin/AdminPage.php` registers *Dashboard* (Items/Settings tabs) and *Status* and passes the current screen to React as `screen` in the boot data. `App.tsx` switches on `config.screen`. The Status page reads `GET /status` (`Status/StatusReport.php`), a read-only report of plugin, WordPress, PHP/server and database details, and can copy it as plain text for support requests.
 - **Uninstall is opt-in.** Data is removed only when the user enabled "Delete data on uninstall", and multisite is supported.
 
 ### Adding an endpoint
