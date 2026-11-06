@@ -1,5 +1,5 @@
 import { request } from './client';
-import { SettingsSchema, type Settings } from './schemas';
+import { type Settings, SettingsSchema } from './schemas';
 
 export const settingsApi = {
   get: async (): Promise<Settings> => (await request(SettingsSchema, { path: 'settings' })).data,

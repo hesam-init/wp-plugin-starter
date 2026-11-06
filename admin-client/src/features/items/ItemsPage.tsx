@@ -8,7 +8,7 @@ import {
 } from '@wordpress/components';
 import { __, _n, sprintf } from '@wordpress/i18n';
 import { useState } from 'react';
-import { itemStatusLabels, type Item, type ItemStatus } from '@/api/schemas';
+import { type Item, type ItemStatus, itemStatusLabels } from '@/api/schemas';
 import { ErrorNotice } from '@/components/ErrorNotice';
 import { LoadingState } from '@/components/LoadingState';
 import { useDebouncedValue } from '@/hooks/useDebouncedValue';
@@ -19,7 +19,10 @@ import { DeleteItemModal } from './DeleteItemModal';
 import { ItemFormModal } from './ItemFormModal';
 
 type ModalState =
-  { type: 'create' } | { type: 'edit'; item: Item } | { type: 'delete'; item: Item } | null;
+  | { type: 'create' }
+  | { type: 'edit'; item: Item }
+  | { type: 'delete'; item: Item }
+  | null;
 
 export function ItemsPage() {
   const [page, setPage] = useState(1);

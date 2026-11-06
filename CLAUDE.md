@@ -11,9 +11,9 @@ Every task runs in Docker through the Makefile, so Node, PHP and Composer are no
 ```bash
 make dev                 # install deps, start db + wordpress (:8080) + vite (:5173), install WP, activate plugin
 make up / make down      # start / stop the stack (data kept)
-make lint                # = lint-js (eslint + tsc) + lint-php (phpcs WPCS + phpstan level 6)
+make lint                # = lint-js (biome check + tsc) + lint-php (phpcs WPCS + phpstan level 6)
 make lint-js | lint-php  # run one half
-make format              # prettier + eslint --fix, phpcbf
+make format              # biome check --write, phpcbf
 make build               # production assets → plugin/assets/dist
 make i18n                # extract strings (PHP + TSX) → update .po → compile .mo/.l10n.php/.json
 make wp CMD="…"          # WP-CLI;  make npm CMD="…" (in admin-client);  make composer CMD="…" (in plugin/)

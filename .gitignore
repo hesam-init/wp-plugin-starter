@@ -5,7 +5,6 @@ node_modules/
 plugin/vendor/
 plugin/assets/dist/
 .phpcs-cache
-.eslintcache
 *.log
 .DS_Store
 .idea/

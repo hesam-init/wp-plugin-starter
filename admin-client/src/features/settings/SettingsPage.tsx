@@ -10,9 +10,9 @@ import {
   ToggleControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import { useState, type FormEvent } from 'react';
+import { type FormEvent, useState } from 'react';
 import { ApiError } from '@/api/client';
-import { fieldErrors, SettingsSchema, type Settings } from '@/api/schemas';
+import { fieldErrors, type Settings, SettingsSchema } from '@/api/schemas';
 import { ErrorNotice } from '@/components/ErrorNotice';
 import { LoadingState } from '@/components/LoadingState';
 import { useNotices } from '@/components/notices-context';

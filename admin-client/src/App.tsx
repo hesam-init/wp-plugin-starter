@@ -1,10 +1,10 @@
+import { TabPanel } from '@wordpress/components';
+import { __, sprintf } from '@wordpress/i18n';
 import { ItemsPage } from '@/features/items/ItemsPage';
 import { SettingsPage } from '@/features/settings/SettingsPage';
 import { StatusPage } from '@/features/status/StatusPage';
 import { useSettings } from '@/hooks/useSettings';
 import { config } from '@/lib/config';
-import { TabPanel } from '@wordpress/components';
-import { __, sprintf } from '@wordpress/i18n';
 
 // Translated at module load — wp.i18n already has the locale data by then.
 const TABS = [
@@ -19,7 +19,6 @@ const initialTab = TABS.some((t) => `#${t.name}` === window.location.hash)
 
 export function App() {
   const { data: settings } = useSettings();
-
 
   return (
     <div className="tw:mt-4 tw:flex tw:flex-col tw:gap-4">

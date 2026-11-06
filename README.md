@@ -7,7 +7,7 @@ A modern WordPress plugin starter: a **PHP plugin** that exposes a REST API, and
 | Admin UI | React 19, TypeScript, Vite 8, Tailwind CSS 4, TanStack Query 5, `@wordpress/api-fetch`, zod 4, `@wordpress/components` |
 | i18n | `@wordpress/i18n` + WordPress script translations, RTL; ships English + Persian (fa_IR) |
 | Plugin | PHP 8.1+, PSR-4 (Composer), WordPress REST API, custom table via `dbDelta` |
-| Tooling | Docker Compose, Make, ESLint, Prettier, PHPCS (WordPress Coding Standards), PHPStan, GitHub Actions |
+| Tooling | Docker Compose, Make, Biome, PHPCS (WordPress Coding Standards), PHPStan, GitHub Actions |
 
 ---
 
@@ -89,8 +89,8 @@ The two halves only meet in two places:
 | `make composer CMD="…"` | Composer in `plugin/` |
 | `make i18n` | Extract strings → update `.po` files → compile `.mo` / `.l10n.php` / `.json` |
 | `make locale LOCALE=fa_IR` | Switch the admin user's language (`en_US` to go back) |
-| `make lint` | ESLint + `tsc`, PHPCS (WPCS) + PHPStan |
-| `make format` | Prettier/ESLint `--fix` + `phpcbf` |
+| `make lint` | Biome (lint + format check) + `tsc`, PHPCS (WPCS) + PHPStan |
+| `make format` | `biome check --write` + `phpcbf` |
 | `make build` | Production assets into `plugin/assets/dist` |
 | `make zip` | Reproducible release zip → `dist/<slug>-<version>.zip` |
 | `make release BUMP=patch` | Bump version → build the zip → commit and tag `vX.Y.Z` |

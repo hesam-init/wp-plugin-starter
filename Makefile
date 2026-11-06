@@ -171,7 +171,7 @@ locale: | $(IMAGES) ## Switch the admin user's language: make locale LOCALE=fa_I
 lint: lint-js lint-php ## Run all linters and type checks
 
 .PHONY: lint-js
-lint-js: admin-client/node_modules | $(IMAGES) ## ESLint + TypeScript type check
+lint-js: admin-client/node_modules | $(IMAGES) ## Biome (lint + format check) + TypeScript type check
 	$(NODE) sh -c "npm run lint && npm run typecheck"
 
 .PHONY: lint-php
@@ -180,7 +180,7 @@ lint-php: plugin/vendor | $(IMAGES) ## PHPCS (WordPress standards) + PHPStan
 	$(COMPOSER) run analyse
 
 .PHONY: format
-format: install | $(IMAGES) ## Auto-fix JS (prettier/eslint) and PHP (phpcbf)
+format: install | $(IMAGES) ## Auto-fix JS (biome) and PHP (phpcbf)
 	$(NODE) npm run format
 	-$(COMPOSER) run fix
 

@@ -1,5 +1,5 @@
 import { SnackbarList } from '@wordpress/components';
-import { useCallback, useMemo, useState, type ReactNode } from 'react';
+import { type ReactNode, useCallback, useMemo, useState } from 'react';
 import { NoticesContext } from './notices-context';
 
 let nextId = 0;
