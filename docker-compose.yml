@@ -22,6 +22,8 @@ x-php-image: &php-image
       COMPOSER_REGISTRY: ${COMPOSER_REGISTRY:-}
       WP_CLI_VERSION: ${WP_CLI_VERSION:-2.12.0}
       WP_CLI_URL: ${WP_CLI_URL:-}
+  # Without an init, the tool runs as PID 1 and ignores Ctrl+C (SIGINT).
+  init: true
 
 x-db-env: &db-env
   WORDPRESS_DB_HOST: db
@@ -149,6 +151,7 @@ services:
         DOCKER_REGISTRY: ${DOCKER_REGISTRY:-}
         APT_MIRROR: ${APT_MIRROR:-}
     profiles: [tools]
+    init: true # lets Ctrl+C stop the tool instead of being ignored by PID 1
     working_dir: /app
     environment:
       HOME: /tmp
