@@ -1,0 +1,13 @@
+# Files excluded from the release zip (see docker/release/Dockerfile)
+.distignore
+.phpcs-cache
+phpcs.xml.dist
+phpstan.neon.dist
+phpstan-bootstrap.php
+composer.json
+composer.lock
+tests/
+assets/dist/hot
+languages/.gitkeep
+.DS_Store
+.js-strings.pot

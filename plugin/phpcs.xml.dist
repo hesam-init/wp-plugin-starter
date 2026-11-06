@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<ruleset name="WpPluginStarter">
+	<description>WordPress Coding Standards, adapted for PSR-4 class files.</description>
+
+	<file>.</file>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/assets/*</exclude-pattern>
+	<exclude-pattern>/languages/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="cache" value=".phpcs-cache"/>
+	<arg name="parallel" value="8"/>
+	<arg value="sp"/>
+
+	<config name="minimum_wp_version" value="6.4"/>
+	<config name="testVersion" value="8.1-"/>
+
+	<rule ref="PHPCompatibilityWP"/>
+
+	<rule ref="WordPress">
+		<!-- PSR-4 file names (Plugin.php) instead of class-plugin.php -->
+		<exclude name="WordPress.Files.FileName"/>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="wp-plugin-starter"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="WpPluginStarter"/>
+				<element value="wp_plugin_starter"/>
+				<element value="WP_PLUGIN_STARTER"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>

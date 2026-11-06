@@ -1,0 +1,36 @@
+# Push a tag created by `make release` (git push --follow-tags) and this
+# builds the zip with the same Dockerfile used locally and attaches it to a
+# GitHub Release.
+name: Release
+
+on:
+  push:
+    tags: ['v*.*.*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read plugin slug
+        id: meta
+        run: echo "slug=$(jq -r .slug starter.json)" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Build zip
+        run: |
+          docker buildx build \
+            -f docker/release/Dockerfile --target artifact \
+            --build-arg PLUGIN_SLUG=${{ steps.meta.outputs.slug }} \
+            --output type=local,dest=dist .
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.zip
+          generate_release_notes: true

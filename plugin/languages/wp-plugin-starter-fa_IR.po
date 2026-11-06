@@ -1,0 +1,336 @@
+# Persian translation for WP Plugin Starter.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Plugin Starter 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: Persian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-05T22:05:43+00:00\n"
+"PO-Revision-Date: 2026-11-05T22:05:43+00:00\n"
+"X-Domain: wp-plugin-starter\n"
+"Language: fa_IR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: wp-plugin-starter.php
+#. Plugin Name of the plugin
+msgid "WP Plugin Starter"
+msgstr ""
+
+#: wp-plugin-starter.php
+#. Plugin URI of the plugin
+msgid "https://example.com/wp-plugin-starter"
+msgstr ""
+
+#: wp-plugin-starter.php
+#. Description of the plugin
+msgid "A modern WordPress plugin starter built with React, TypeScript and Vite."
+msgstr "یک افزونه آغازین مدرن وردپرس، ساخته‌شده با React، TypeScript و Vite."
+
+#: wp-plugin-starter.php
+#. Author of the plugin
+msgid "Your Name"
+msgstr ""
+
+#: wp-plugin-starter.php
+#. Author URI of the plugin
+msgid "https://example.com"
+msgstr ""
+
+#: src/Admin/AdminPage.php:92
+msgid "Admin assets are missing. Run \"make dev\" (development) or \"make build\" (production)."
+msgstr "فایل‌های رابط مدیریت پیدا نشدند. دستور «make dev» (توسعه) یا «make build» (انتشار) را اجرا کنید."
+
+#: src/Admin/AdminPage.php:108
+#: admin-client/src/App.tsx:11
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: src/Items/ItemRepository.php:136
+msgid "Could not create item."
+msgstr "ایجاد مورد ممکن نشد."
+
+#: src/Items/ItemRepository.php:162
+msgid "Could not update item."
+msgstr "به‌روزرسانی مورد ممکن نشد."
+
+#: src/Rest/AbstractController.php:49
+msgid "Sorry, you are not allowed to do that."
+msgstr "متأسفیم، شما اجازه انجام این کار را ندارید."
+
+#: src/Rest/ItemsController.php:72
+msgid "Unique identifier for the item."
+msgstr "شناسه یکتای مورد."
+
+#: src/Rest/ItemsController.php:226
+msgid "The item could not be deleted."
+msgstr "حذف مورد ممکن نشد."
+
+#: src/Rest/ItemsController.php:288
+msgid "Unique identifier."
+msgstr "شناسه یکتا."
+
+#: src/Rest/ItemsController.php:294
+msgid "Item title."
+msgstr "عنوان مورد."
+
+#: src/Rest/ItemsController.php:303
+msgid "Item content (limited HTML allowed)."
+msgstr "محتوای مورد (HTML محدود مجاز است)."
+
+#: src/Rest/ItemsController.php:310
+msgid "Publication status."
+msgstr "وضعیت انتشار."
+
+#: src/Rest/ItemsController.php:317
+msgid "ID of the user who created the item."
+msgstr "شناسه کاربری که مورد را ایجاد کرده است."
+
+#: src/Rest/ItemsController.php:323
+msgid "Creation date (UTC, ISO 8601)."
+msgstr "تاریخ ایجاد (UTC، ISO 8601)."
+
+#: src/Rest/ItemsController.php:330
+msgid "Last update date (UTC, ISO 8601)."
+msgstr "تاریخ آخرین به‌روزرسانی (UTC، ISO 8601)."
+
+#: src/Rest/ItemsController.php:351
+msgid "Limit results to a status."
+msgstr "محدود کردن نتایج به یک وضعیت."
+
+#: src/Rest/ItemsController.php:356
+msgid "Sort collection by attribute."
+msgstr "مرتب‌سازی مجموعه بر اساس ویژگی."
+
+#: src/Rest/ItemsController.php:362
+msgid "Sort direction."
+msgstr "جهت مرتب‌سازی."
+
+#: src/Rest/ItemsController.php:375
+msgid "Item not found."
+msgstr "مورد پیدا نشد."
+
+#: src/Settings/Settings.php:32
+msgid "Message shown at the top of the plugin page."
+msgstr "پیامی که در بالای صفحه افزونه نمایش داده می‌شود."
+
+#: src/Settings/Settings.php:35
+msgid "Welcome! Manage your items below."
+msgstr "خوش آمدید! موارد خود را در زیر مدیریت کنید."
+
+#: src/Settings/Settings.php:39
+msgid "Number of items per page in the admin list."
+msgstr "تعداد موارد در هر صفحه از فهرست مدیریت."
+
+#: src/Settings/Settings.php:46
+msgid "Operating mode."
+msgstr "حالت کارکرد."
+
+#: src/Settings/Settings.php:52
+msgid "Remove all plugin data when the plugin is deleted."
+msgstr "حذف همه داده‌های افزونه هنگام پاک کردن افزونه."
+
+#: wp-plugin-starter.php:40
+#. translators: 1: plugin name, 2: required PHP version.
+msgid "%1$s requires PHP %2$s or newer."
+msgstr "%1$s به PHP نسخه %2$s یا جدیدتر نیاز دارد."
+
+#: admin-client/src/App.tsx:10
+msgid "Items"
+msgstr "موارد"
+
+#: admin-client/src/App.tsx:34
+#. translators: %s: plugin version number.
+msgid "Version %s"
+msgstr "نسخه %s"
+
+#: admin-client/src/api/client.ts:74 admin-client/src/components/ErrorNotice.tsx:11
+msgid "Something went wrong."
+msgstr "مشکلی پیش آمد."
+
+#: admin-client/src/api/client.ts:79
+msgid "This field is required."
+msgstr "پر کردن این فیلد الزامی است."
+
+#: admin-client/src/api/client.ts:128
+msgid "Unexpected response from the server."
+msgstr "پاسخ غیرمنتظره از سرور دریافت شد."
+
+#: admin-client/src/api/schemas.ts:13
+msgid "Keep it under 200 characters."
+msgstr "حداکثر ۲۰۰ نویسه مجاز است."
+
+#: admin-client/src/api/schemas.ts:25
+msgid "Draft"
+msgstr "پیش‌نویس"
+
+#: admin-client/src/api/schemas.ts:26
+msgid "Published"
+msgstr "منتشر‌شده"
+
+#: admin-client/src/api/schemas.ts:42
+msgid "Title is required."
+msgstr "عنوان الزامی است."
+
+#: admin-client/src/components/ErrorNotice.tsx:19
+msgid "Retry"
+msgstr "تلاش دوباره"
+
+#: admin-client/src/components/LoadingState.tsx:8
+msgid "Loading…"
+msgstr "در حال بارگذاری…"
+
+#: admin-client/src/features/items/DeleteItemModal.tsx:13
+msgid "Delete item?"
+msgstr "مورد حذف شود؟"
+
+#: admin-client/src/features/items/DeleteItemModal.tsx:19
+msgid "This item will be permanently deleted."
+msgstr "این مورد برای همیشه حذف خواهد شد."
+
+#: admin-client/src/features/items/DeleteItemModal.tsx:24 admin-client/src/features/items/ItemFormModal.tsx:109
+msgid "Cancel"
+msgstr "انصراف"
+
+#: admin-client/src/features/items/DeleteItemModal.tsx:35
+msgid "Item deleted."
+msgstr "مورد حذف شد."
+
+#: admin-client/src/features/items/DeleteItemModal.tsx:41 admin-client/src/features/items/ItemsPage.tsx:135
+msgid "Delete"
+msgstr "حذف"
+
+#: admin-client/src/features/items/ItemFormModal.tsx:52
+msgid "Item updated."
+msgstr "مورد به‌روزرسانی شد."
+
+#: admin-client/src/features/items/ItemFormModal.tsx:53
+msgid "Item created."
+msgstr "مورد ایجاد شد."
+
+#: admin-client/src/features/items/ItemFormModal.tsx:68
+msgid "Edit item"
+msgstr "ویرایش مورد"
+
+#: admin-client/src/features/items/ItemFormModal.tsx:68 admin-client/src/features/items/ItemsPage.tsx:81
+msgid "Add item"
+msgstr "افزودن مورد"
+
+#: admin-client/src/features/items/ItemFormModal.tsx:78 admin-client/src/features/items/ItemsPage.tsx:97
+msgid "Title"
+msgstr "عنوان"
+
+#: admin-client/src/features/items/ItemFormModal.tsx:87
+msgid "Content"
+msgstr "محتوا"
+
+#: admin-client/src/features/items/ItemFormModal.tsx:97 admin-client/src/features/items/ItemsPage.tsx:61 admin-client/src/features/items/ItemsPage.tsx:98
+msgid "Status"
+msgstr "وضعیت"
+
+#: admin-client/src/features/items/ItemFormModal.tsx:119
+msgid "Save changes"
+msgstr "ذخیره تغییرات"
+
+#: admin-client/src/features/items/ItemFormModal.tsx:120
+msgid "Create item"
+msgstr "ایجاد مورد"
+
+#: admin-client/src/features/items/ItemsPage.tsx:49
+msgid "Search items"
+msgstr "جستجوی موارد"
+
+#: admin-client/src/features/items/ItemsPage.tsx:65
+msgid "All statuses"
+msgstr "همه وضعیت‌ها"
+
+#: admin-client/src/features/items/ItemsPage.tsx:89
+msgid "Loading items…"
+msgstr "در حال بارگذاری موارد…"
+
+#: admin-client/src/features/items/ItemsPage.tsx:99
+msgid "Updated"
+msgstr "به‌روزرسانی"
+
+#: admin-client/src/features/items/ItemsPage.tsx:100
+msgid "Actions"
+msgstr "عملیات"
+
+#: admin-client/src/features/items/ItemsPage.tsx:107
+msgid "No items found."
+msgstr "هیچ موردی پیدا نشد."
+
+#: admin-client/src/features/items/ItemsPage.tsx:127
+msgid "Edit"
+msgstr "ویرایش"
+
+#: admin-client/src/features/items/ItemsPage.tsx:148
+#. translators: %s: number of items.
+msgid "%s item"
+msgid_plural "%s items"
+msgstr[0] "%s مورد"
+msgstr[1] "%s مورد"
+
+#: admin-client/src/features/items/ItemsPage.tsx:159
+msgid "Previous"
+msgstr "قبلی"
+
+#: admin-client/src/features/items/ItemsPage.tsx:164
+#. translators: 1: current page number, 2: total number of pages.
+msgid "Page %1$s of %2$s"
+msgstr "صفحه %1$s از %2$s"
+
+#: admin-client/src/features/items/ItemsPage.tsx:175
+msgid "Next"
+msgstr "بعدی"
+
+#: admin-client/src/features/settings/SettingsPage.tsx:52
+msgid "Settings saved."
+msgstr "تنظیمات ذخیره شد."
+
+#: admin-client/src/features/settings/SettingsPage.tsx:64
+msgid "General"
+msgstr "عمومی"
+
+#: admin-client/src/features/settings/SettingsPage.tsx:74
+msgid "Welcome message"
+msgstr "پیام خوش‌آمدگویی"
+
+#: admin-client/src/features/settings/SettingsPage.tsx:77
+msgid "Shown at the top of the plugin page."
+msgstr "در بالای صفحه افزونه نمایش داده می‌شود."
+
+#: admin-client/src/features/settings/SettingsPage.tsx:86
+msgid "Items per page"
+msgstr "تعداد موارد در هر صفحه"
+
+#: admin-client/src/features/settings/SettingsPage.tsx:97
+msgid "Mode"
+msgstr "حالت"
+
+#: admin-client/src/features/settings/SettingsPage.tsx:101
+msgid "Simple"
+msgstr "ساده"
+
+#: admin-client/src/features/settings/SettingsPage.tsx:102
+msgid "Advanced"
+msgstr "پیشرفته"
+
+#: admin-client/src/features/settings/SettingsPage.tsx:109
+msgid "Delete all plugin data when the plugin is deleted"
+msgstr "حذف همه داده‌های افزونه هنگام پاک کردن افزونه"
+
+#: admin-client/src/features/settings/SettingsPage.tsx:110
+msgid "Leave off unless you are sure — this drops the items table."
+msgstr "اگر مطمئن نیستید خاموش بماند — این کار جدول موارد را حذف می‌کند."
+
+#: admin-client/src/features/settings/SettingsPage.tsx:129
+msgid "Reset"
+msgstr "بازنشانی"
+
+#: admin-client/src/features/settings/SettingsPage.tsx:138
+msgid "Save settings"
+msgstr "ذخیره تنظیمات"
+

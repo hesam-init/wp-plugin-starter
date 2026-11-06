@@ -1,0 +1,8 @@
+parameters:
+  level: 6
+  paths:
+    - src
+    - wp-plugin-starter.php
+    - uninstall.php
+  bootstrapFiles:
+    - phpstan-bootstrap.php

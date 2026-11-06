@@ -1,0 +1,13 @@
+{
+  "name": "WP Plugin Starter",
+  "slug": "wp-plugin-starter",
+  "namespace": "WpPluginStarter",
+  "prefix": "wp_plugin_starter",
+  "constPrefix": "WP_PLUGIN_STARTER",
+  "jsGlobal": "wpPluginStarter",
+  "description": "A modern WordPress plugin starter built with React, TypeScript and Vite.",
+  "author": "Your Name",
+  "authorUri": "https://example.com",
+  "pluginUri": "https://example.com/wp-plugin-starter",
+  "vendor": "your-vendor"
+}

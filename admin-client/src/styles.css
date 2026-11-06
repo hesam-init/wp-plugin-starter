@@ -1,0 +1,25 @@
+/*
+ * Tailwind inside wp-admin:
+ *  - No preflight (base reset) — it would restyle all of wp-admin.
+ *  - `tw:` prefix — WordPress already uses class names like .fixed, .hidden,
+ *    .sticky and .static with different meanings (e.g. `table.fixed`).
+ *    Write utilities as `tw:flex`, `tw:md:gap-4`, …
+ *  - Utilities are `!important` so they win over wp-admin's unlayered CSS
+ *    (unlayered rules beat any @layer rule regardless of specificity).
+ */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme) prefix(tw);
+@import 'tailwindcss/utilities.css' layer(utilities) important;
+
+/*
+ * RTL: write direction-agnostic utilities — tw:ms-2 / tw:me-2, tw:ps-4 / tw:pe-4,
+ * tw:start-0 / tw:end-0, tw:text-start / tw:text-end — and layouts flip
+ * automatically when WordPress renders <html dir="rtl">. (@wordpress/components'
+ * own LTR/RTL stylesheet is picked at runtime in src/lib/component-styles.ts.)
+ */
+
+/* Follow the user's admin color scheme: tw:bg-wp, tw:text-wp, tw:border-wp, … */
+@theme {
+  --color-wp: var(--wp-admin-theme-color, #3858e9);
+  --color-wp-dark: var(--wp-admin-theme-color-darker-10, #2145e6);
+}

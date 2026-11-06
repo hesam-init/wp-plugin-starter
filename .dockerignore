@@ -1,0 +1,9 @@
+.git
+.github
+.env
+dist
+**/node_modules
+plugin/vendor
+plugin/assets/dist
+admin-client/dist
+**/.DS_Store

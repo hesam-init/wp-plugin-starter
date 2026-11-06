@@ -1,0 +1,38 @@
+{
+  "name": "your-vendor/wp-plugin-starter",
+  "description": "A modern WordPress plugin starter built with React, TypeScript and Vite.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": ">=8.1"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "phpstan/extension-installer": "^1.4",
+    "phpstan/phpstan": "^2.1",
+    "szepeviktor/phpstan-wordpress": "^2.0",
+    "wp-coding-standards/wpcs": "^3.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "WpPluginStarter\\": "src/"
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "8.1"
+    },
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "phpstan/extension-installer": true
+    }
+  },
+  "scripts": {
+    "lint": "phpcs",
+    "fix": "phpcbf",
+    "analyse": "phpstan analyse --memory-limit=1G"
+  }
+}
