@@ -10,10 +10,10 @@ ARG DOCKER_REGISTRY=
 ARG NODE_VERSION=24
 ARG PHP_VERSION=8.3
 
-FROM ${DOCKER_REGISTRY}composer:2 AS composer-bin
+FROM ${DOCKER_REGISTRY:+${DOCKER_REGISTRY}/}composer:2 AS composer-bin
 
 # ---- 1. Front-end assets -----------------------------------------------------
-FROM ${DOCKER_REGISTRY}node:${NODE_VERSION}-trixie-slim AS assets
+FROM ${DOCKER_REGISTRY:+${DOCKER_REGISTRY}/}node:${NODE_VERSION}-trixie-slim AS assets
 ARG NPM_REGISTRY=
 RUN if [ -n "${NPM_REGISTRY}" ]; then npm config set registry "${NPM_REGISTRY}" --location=global; fi
 WORKDIR /app/admin-client
@@ -24,7 +24,7 @@ COPY admin-client/ ./
 RUN mkdir -p /app/plugin/assets && npm run build
 
 # ---- 2. Production PHP dependencies -------------------------------------------
-FROM ${DOCKER_REGISTRY}php:${PHP_VERSION}-cli-trixie AS vendor
+FROM ${DOCKER_REGISTRY:+${DOCKER_REGISTRY}/}php:${PHP_VERSION}-cli-trixie AS vendor
 ARG APT_MIRROR=
 ARG COMPOSER_REGISTRY=
 RUN set -eux; \
@@ -49,7 +49,7 @@ RUN composer dump-autoload --no-dev --optimize --classmap-authoritative
 
 # ---- 3. Assemble & zip ---------------------------------------------------------
 # buildpack-deps:*-curl = Debian + ca-certificates, so an https APT_MIRROR works.
-FROM ${DOCKER_REGISTRY}buildpack-deps:trixie-curl AS package
+FROM ${DOCKER_REGISTRY:+${DOCKER_REGISTRY}/}buildpack-deps:trixie-curl AS package
 ARG APT_MIRROR=
 ARG PLUGIN_SLUG
 RUN set -eux; \

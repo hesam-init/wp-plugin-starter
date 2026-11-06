@@ -2,7 +2,7 @@
 # Registries come from .env (see .env.example) and are baked in as build args.
 ARG DOCKER_REGISTRY=
 ARG NODE_VERSION=24
-FROM ${DOCKER_REGISTRY}node:${NODE_VERSION}-trixie-slim
+FROM ${DOCKER_REGISTRY:+${DOCKER_REGISTRY}/}node:${NODE_VERSION}-trixie-slim
 
 ARG NPM_REGISTRY=
 

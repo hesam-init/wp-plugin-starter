@@ -32,7 +32,7 @@ x-db-env: &db-env
 services:
   # The official MariaDB image is Ubuntu based (there is no Debian variant).
   db:
-    image: ${DOCKER_REGISTRY:-}mariadb:11.4
+    image: ${DOCKER_REGISTRY:+${DOCKER_REGISTRY}/}mariadb:11.4
     restart: unless-stopped
     environment:
       MARIADB_DATABASE: ${DB_NAME:-wordpress}
@@ -49,7 +49,7 @@ services:
 
   # wordpress:php8.x-apache is built on php:8.x-apache -> Debian trixie.
   wordpress:
-    image: ${DOCKER_REGISTRY:-}wordpress:${WP_IMAGE_TAG:-php8.3-apache}
+    image: ${DOCKER_REGISTRY:+${DOCKER_REGISTRY}/}wordpress:${WP_IMAGE_TAG:-php8.3-apache}
     restart: unless-stopped
     depends_on:
       db:

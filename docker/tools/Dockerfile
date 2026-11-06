@@ -2,7 +2,7 @@
 # Running them here means GNU sed/grep behave the same on Linux, macOS and Windows.
 ARG DOCKER_REGISTRY=
 # buildpack-deps:*-curl = Debian + ca-certificates, so an https APT_MIRROR works.
-FROM ${DOCKER_REGISTRY}buildpack-deps:trixie-curl
+FROM ${DOCKER_REGISTRY:+${DOCKER_REGISTRY}/}buildpack-deps:trixie-curl
 
 ARG APT_MIRROR=
 

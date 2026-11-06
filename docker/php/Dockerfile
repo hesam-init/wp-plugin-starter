@@ -6,9 +6,9 @@ ARG DOCKER_REGISTRY=
 ARG PHP_VERSION=8.3
 
 # Only a source for the composer binary; the final image is Debian.
-FROM ${DOCKER_REGISTRY}composer:2 AS composer-bin
+FROM ${DOCKER_REGISTRY:+${DOCKER_REGISTRY}/}composer:2 AS composer-bin
 
-FROM ${DOCKER_REGISTRY}php:${PHP_VERSION}-cli-trixie
+FROM ${DOCKER_REGISTRY:+${DOCKER_REGISTRY}/}php:${PHP_VERSION}-cli-trixie
 
 ARG APT_MIRROR=
 ARG COMPOSER_REGISTRY=

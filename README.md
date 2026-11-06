@@ -122,7 +122,7 @@ Set these in `.env` and leave them empty for the public defaults:
 
 | Variable | Effect |
 | --- | --- |
-| `DOCKER_REGISTRY` | Prefix for **every** image, including `db`, `wordpress` and the release stages. Include the trailing slash, e.g. `docker.arvancloud.ir/` |
+| `DOCKER_REGISTRY` | Prefix for **every** image, including `db`, `wordpress` and the release stages. No trailing slash, e.g. `docker.arvancloud.ir` (the `/` is added for you) |
 | `APT_MIRROR` | Replaces `deb.debian.org` in every Debian image (it must also serve `/debian-security`) |
 | `NPM_REGISTRY` | Global npm registry. Tarball URLs from `package-lock.json` are rewritten to it as well |
 | `COMPOSER_REGISTRY` | Replaces Packagist in the global Composer config. `packagist.org` is disabled, so nothing bypasses the mirror |

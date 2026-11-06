@@ -16,6 +16,9 @@ PHP_VERSION       ?= 8.3
 WP_CLI_VERSION    ?= 2.12.0
 WP_URL            ?= http://localhost:8080
 DOCKER_REGISTRY   ?=
+# Tolerate a trailing slash in .env; exported so compose sees the same value.
+override DOCKER_REGISTRY := $(patsubst %/,%,$(DOCKER_REGISTRY))
+export DOCKER_REGISTRY
 APT_MIRROR        ?=
 NPM_REGISTRY      ?=
 COMPOSER_REGISTRY ?=
