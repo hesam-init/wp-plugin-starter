@@ -179,30 +179,6 @@ function buildSections(status: Status): Section[] {
 
   return [
     {
-      id: 'plugin',
-      title: __('Plugin', 'wp-plugin-starter'),
-      rows: [
-        { label: __('Version', 'wp-plugin-starter'), text: plugin.version },
-        {
-          label: __('Database schema', 'wp-plugin-starter'),
-          text: dbText,
-          node: <Flag ok={dbUpToDate}>{dbText}</Flag>,
-        },
-        {
-          label: __('Items table', 'wp-plugin-starter'),
-          text: itemsText,
-          node: <Flag ok={plugin.itemsTable.exists}>{itemsText}</Flag>,
-        },
-        {
-          label: __('Assets', 'wp-plugin-starter'),
-          text:
-            plugin.assetMode === 'dev'
-              ? __('Vite dev server (HMR)', 'wp-plugin-starter')
-              : __('Production build', 'wp-plugin-starter'),
-        },
-      ],
-    },
-    {
       id: 'wordpress',
       title: __('WordPress', 'wp-plugin-starter'),
       rows: [
@@ -273,6 +249,31 @@ function buildSections(status: Status): Section[] {
         },
       ],
     },
+    // {
+    //   id: 'plugin',
+    //   title: __('Plugin', 'wp-plugin-starter'),
+    //   rows: [
+    //     { label: __('Version', 'wp-plugin-starter'), text: plugin.version },
+    //     {
+    //       label: __('Database schema', 'wp-plugin-starter'),
+    //       text: dbText,
+    //       node: <Flag ok={dbUpToDate}>{dbText}</Flag>,
+    //     },
+    //     {
+    //       label: __('Items table', 'wp-plugin-starter'),
+    //       text: itemsText,
+    //       node: <Flag ok={plugin.itemsTable.exists}>{itemsText}</Flag>,
+    //     },
+    //     {
+    //       label: __('Assets', 'wp-plugin-starter'),
+    //       text:
+    //         plugin.assetMode === 'dev'
+    //           ? __('Vite dev server (HMR)', 'wp-plugin-starter')
+    //           : __('Production build', 'wp-plugin-starter'),
+    //     },
+    //   ],
+    // },
+
     {
       id: 'database',
       title: __('Database', 'wp-plugin-starter'),
