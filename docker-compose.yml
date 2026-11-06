@@ -1,14 +1,38 @@
-# Local development stack.
+# Local development stack (Debian trixie based images).
 #   make up      -> db + wordpress + vite (node)
 #   make setup   -> installs WordPress and activates the plugin (wpcli)
 # Services under the "tools" profile only run on demand via `docker compose run`.
+#
+# Images built here (docker/<name>/Dockerfile) take registries/mirrors from .env;
+# the Makefile rebuilds them automatically when those values change.
 
 x-host-user: &host-user
   user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
 
+# PHP CLI + Composer + WP-CLI (docker/php/Dockerfile), shared by composer, i18n, wpcli.
+x-php-image: &php-image
+  image: ${COMPOSE_PROJECT_NAME:-wp-plugin-starter}-php
+  build:
+    context: .
+    dockerfile: docker/php/Dockerfile
+    args:
+      DOCKER_REGISTRY: ${DOCKER_REGISTRY:-}
+      PHP_VERSION: ${PHP_VERSION:-8.3}
+      APT_MIRROR: ${APT_MIRROR:-}
+      COMPOSER_REGISTRY: ${COMPOSER_REGISTRY:-}
+      WP_CLI_VERSION: ${WP_CLI_VERSION:-2.12.0}
+      WP_CLI_URL: ${WP_CLI_URL:-}
+
+x-db-env: &db-env
+  WORDPRESS_DB_HOST: db
+  WORDPRESS_DB_NAME: ${DB_NAME:-wordpress}
+  WORDPRESS_DB_USER: ${DB_USER:-wordpress}
+  WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-wordpress}
+
 services:
+  # The official MariaDB image is Ubuntu based (there is no Debian variant).
   db:
-    image: mariadb:11.4
+    image: ${DOCKER_REGISTRY:-}mariadb:11.4
     restart: unless-stopped
     environment:
       MARIADB_DATABASE: ${DB_NAME:-wordpress}
@@ -23,8 +47,9 @@ services:
       timeout: 5s
       retries: 20
 
+  # wordpress:php8.x-apache is built on php:8.x-apache -> Debian trixie.
   wordpress:
-    image: wordpress:${WP_IMAGE_TAG:-php8.3-apache}
+    image: ${DOCKER_REGISTRY:-}wordpress:${WP_IMAGE_TAG:-php8.3-apache}
     restart: unless-stopped
     depends_on:
       db:
@@ -32,10 +57,7 @@ services:
     ports:
       - "${WP_PORT:-8080}:80"
     environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_NAME: ${DB_NAME:-wordpress}
-      WORDPRESS_DB_USER: ${DB_USER:-wordpress}
-      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-wordpress}
+      <<: *db-env
       WORDPRESS_DEBUG: 1
       WORDPRESS_CONFIG_EXTRA: |
         define( 'WP_ENVIRONMENT_TYPE', 'local' );
@@ -47,8 +69,15 @@ services:
       - ./plugin:/var/www/html/wp-content/plugins/${PLUGIN_SLUG:-wp-plugin-starter}
 
   node:
-    image: node:${NODE_VERSION:-24}-alpine
     <<: *host-user
+    image: ${COMPOSE_PROJECT_NAME:-wp-plugin-starter}-node
+    build:
+      context: .
+      dockerfile: docker/node/Dockerfile
+      args:
+        DOCKER_REGISTRY: ${DOCKER_REGISTRY:-}
+        NODE_VERSION: ${NODE_VERSION:-24}
+        NPM_REGISTRY: ${NPM_REGISTRY:-}
     init: true # forwards SIGTERM so Vite can remove its "hot" file on shutdown
     working_dir: /app/admin-client
     command: sh -c "[ -d node_modules ] || npm ci; npm run dev"
@@ -65,17 +94,16 @@ services:
   # --- on-demand tools ------------------------------------------------------
 
   wpcli:
-    image: wordpress:cli-php${PHP_VERSION:-8.3}
+    <<: *php-image
     profiles: [tools]
     user: "33:33" # match www-data of the apache image
+    working_dir: /var/www/html
     depends_on:
       db:
         condition: service_healthy
     environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_NAME: ${DB_NAME:-wordpress}
-      WORDPRESS_DB_USER: ${DB_USER:-wordpress}
-      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-wordpress}
+      <<: *db-env
+      HOME: /tmp
       PLUGIN_SLUG: ${PLUGIN_SLUG:-wp-plugin-starter}
       WP_URL: ${WP_URL:-http://localhost:8080}
       WP_TITLE: ${WP_TITLE:-Plugin Dev}
@@ -88,11 +116,10 @@ services:
       - ./plugin:/var/www/html/wp-content/plugins/${PLUGIN_SLUG:-wp-plugin-starter}
       - ./scripts:/scripts:ro
 
-  # WP-CLI for translation tasks (make-pot, update-po, make-mo, make-php) — no DB needed.
+  # WP-CLI for translation tasks (make-pot, update-po, make-mo, make-php); no DB needed.
   i18n:
-    image: wordpress:cli-php${PHP_VERSION:-8.3}
+    <<: [*php-image, *host-user]
     profiles: [tools]
-    <<: *host-user
     working_dir: /app
     entrypoint: ["wp"]
     environment:
@@ -100,21 +127,28 @@ services:
     volumes:
       - .:/app
 
+  # COMPOSER_HOME is baked into the image (/opt/composer, holds the registry
+  # config); don't override it here or COMPOSER_REGISTRY stops applying.
   composer:
-    image: composer:2
+    <<: [*php-image, *host-user]
     profiles: [tools]
-    <<: *host-user
     working_dir: /app/plugin
+    entrypoint: ["composer"]
     environment:
-      COMPOSER_HOME: /tmp/composer
+      HOME: /tmp
     volumes:
       - .:/app
 
   tools:
-    build:
-      context: ./docker/tools
-    profiles: [tools]
     <<: *host-user
+    image: ${COMPOSE_PROJECT_NAME:-wp-plugin-starter}-tools
+    build:
+      context: .
+      dockerfile: docker/tools/Dockerfile
+      args:
+        DOCKER_REGISTRY: ${DOCKER_REGISTRY:-}
+        APT_MIRROR: ${APT_MIRROR:-}
+    profiles: [tools]
     working_dir: /app
     environment:
       HOME: /tmp

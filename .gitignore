@@ -1,5 +1,6 @@
 .env
 dist/
+.cache/
 node_modules/
 plugin/vendor/
 plugin/assets/dist/

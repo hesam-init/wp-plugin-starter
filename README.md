@@ -28,10 +28,12 @@ Then open **http://localhost:8080/wp-admin** and log in with `admin` / `admin`. 
 ```
 .
 ├── Makefile                  # the single entry point: `make help`
-├── docker-compose.yml        # db, wordpress, node (vite) + on-demand: wpcli, composer, tools
-├── docker/
-│   ├── release/Dockerfile    # multi-stage build → dist/<slug>-<version>.zip
-│   └── tools/Dockerfile      # bash/sed/jq image for the project scripts
+├── docker-compose.yml        # db, wordpress, node (vite) + on-demand: wpcli, i18n, composer, tools
+├── docker/                   # every image is Debian 13 (trixie), registries/mirrors from .env
+│   ├── node/Dockerfile       # Node + npm (Vite, i18n.mjs)
+│   ├── php/Dockerfile        # PHP CLI + Composer + WP-CLI (composer, i18n, wpcli services)
+│   ├── tools/Dockerfile      # bash/sed/jq image for the project scripts
+│   └── release/Dockerfile    # multi-stage build → dist/<slug>-<version>.zip
 ├── scripts/
 │   ├── init.sh               # rename wizard (make init)
 │   ├── bump-version.sh       # semver bump everywhere (make bump / make release)
@@ -92,6 +94,7 @@ The two halves only meet in two places:
 | `make build` | Production assets into `plugin/assets/dist` |
 | `make zip` | Reproducible release zip → `dist/<slug>-<version>.zip` |
 | `make release BUMP=patch` | Bump version → build the zip → commit and tag `vX.Y.Z` |
+| `make rebuild` | Force a rebuild of the local images, pulling fresh base images |
 | `make nuke` | Stop everything and **delete** the DB and WordPress volumes |
 
 ## How development works
@@ -104,6 +107,30 @@ The two halves only meet in two places:
 - Assets are loaded only on the plugin's own admin screen (`load-{hook}`).
 - Containers that write to the repo run with your UID/GID, so files stay owned by you.
 - On macOS or Windows, if HMR misses changes, set `VITE_USE_POLLING=true` in `.env`.
+
+## Docker images, registries and mirrors
+
+All images are Debian 13 (trixie). `db` (`mariadb:11.4`, which has no Debian variant) and `wordpress:<WP_IMAGE_TAG>` are pulled as they are. The project builds three images of its own, one Dockerfile each:
+
+| Image | Base | Used by |
+| --- | --- | --- |
+| `docker/node` | `node:<NODE_VERSION>-trixie-slim` | `node` (Vite, npm) |
+| `docker/php` | `php:<PHP_VERSION>-cli-trixie` + Composer + WP-CLI | `composer`, `i18n`, `wpcli` |
+| `docker/tools` | `buildpack-deps:trixie-curl` + bash/jq/sed | `tools` (init, version bump) |
+
+Set these in `.env` and leave them empty for the public defaults:
+
+| Variable | Effect |
+| --- | --- |
+| `DOCKER_REGISTRY` | Prefix for **every** image, including `db`, `wordpress` and the release stages. Include the trailing slash, e.g. `docker.arvancloud.ir/` |
+| `APT_MIRROR` | Replaces `deb.debian.org` in every Debian image (it must also serve `/debian-security`) |
+| `NPM_REGISTRY` | Global npm registry. Tarball URLs from `package-lock.json` are rewritten to it as well |
+| `COMPOSER_REGISTRY` | Replaces Packagist in the global Composer config. `packagist.org` is disabled, so nothing bypasses the mirror |
+| `WP_CLI_VERSION` / `WP_CLI_URL` | WP-CLI release. `WP_CLI_URL` overrides the GitHub download URL |
+
+They are baked into the images as build args, and `make zip` passes them to the release build. **You don't need to rebuild by hand.** The Makefile keeps a stamp in `.cache/` named after a checksum of these values and the Dockerfiles, so the next `make …` command after a change rebuilds the images once. `make rebuild` forces a fresh build.
+
+`composer.lock` stores the download URL of each package. A lock created against one registry keeps those URLs, so run `make composer CMD="update"` after switching registries if downloads still go to the old host. Note that mirrors can lag behind. If Composer can't resolve a recent version, the mirror may be stale.
 
 ## REST API
 

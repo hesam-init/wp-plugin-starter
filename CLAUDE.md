@@ -21,6 +21,8 @@ make zip                 # reproducible release zip → dist/<slug>-<version>.zi
 make release BUMP=patch  # bump version everywhere, zip, commit + tag (needs a clean tree; NO_GIT=1 to skip git)
 ```
 
+**Docker.** Every image is Debian trixie, with one Dockerfile per job: `docker/node`, `docker/php` (PHP CLI + Composer + WP-CLI for the `composer`/`i18n`/`wpcli` services), `docker/tools` and `docker/release`. `DOCKER_REGISTRY`, `APT_MIRROR`, `NPM_REGISTRY`, `COMPOSER_REGISTRY` and `WP_CLI_*` in `.env` are baked in as build args, and the Makefile rebuilds the images automatically when they change (checksum stamp in `.cache/`, order-only prerequisite `| $(IMAGES)` on every target that starts a container). Don't set `COMPOSER_HOME` in compose, because the mirror config lives in the image's `/opt/composer`. Keep the four Dockerfiles in sync when changing how a mirror is applied.
+
 CI (`.github/workflows/ci.yml`) runs the same checks natively: `npm run lint && npm run typecheck && npm run build` in `admin-client/`, and `composer run lint && composer run analyse` in `plugin/`.
 
 The repo has no automated test suite (no PHPUnit, no Vitest). Lint, typecheck and PHPStan are the checks.

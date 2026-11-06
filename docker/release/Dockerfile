@@ -1,16 +1,21 @@
-# syntax=docker/dockerfile:1.7
-#
-# Reproducible release build. Produces dist/<slug>-<version>.zip on the host:
+# Reproducible release build (Debian trixie stages). Produces
+# dist/<slug>-<version>.zip on the host:
 #
 #   docker build -f docker/release/Dockerfile --target artifact \
 #     --build-arg PLUGIN_SLUG=my-plugin --output type=local,dest=dist .
 #
-# (`make zip` wraps this.)
+# (`make zip` wraps this and passes the registries/mirrors from .env.)
 
+ARG DOCKER_REGISTRY=
 ARG NODE_VERSION=24
+ARG PHP_VERSION=8.3
+
+FROM ${DOCKER_REGISTRY}composer:2 AS composer-bin
 
 # ---- 1. Front-end assets -----------------------------------------------------
-FROM node:${NODE_VERSION}-alpine AS assets
+FROM ${DOCKER_REGISTRY}node:${NODE_VERSION}-trixie-slim AS assets
+ARG NPM_REGISTRY=
+RUN if [ -n "${NPM_REGISTRY}" ]; then npm config set registry "${NPM_REGISTRY}" --location=global; fi
 WORKDIR /app/admin-client
 COPY admin-client/package.json admin-client/package-lock.json ./
 RUN npm ci --no-audit --no-fund
@@ -19,7 +24,23 @@ COPY admin-client/ ./
 RUN mkdir -p /app/plugin/assets && npm run build
 
 # ---- 2. Production PHP dependencies -------------------------------------------
-FROM composer:2 AS vendor
+FROM ${DOCKER_REGISTRY}php:${PHP_VERSION}-cli-trixie AS vendor
+ARG APT_MIRROR=
+ARG COMPOSER_REGISTRY=
+RUN set -eux; \
+    if [ -n "${APT_MIRROR}" ]; then \
+      sed -i "s|http://deb.debian.org|${APT_MIRROR%/}|g" /etc/apt/sources.list.d/debian.sources; \
+    fi; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends ca-certificates git unzip; \
+    rm -rf /var/lib/apt/lists/*
+COPY --from=composer-bin /usr/bin/composer /usr/local/bin/composer
+RUN set -eux; \
+    if [ -n "${COMPOSER_REGISTRY}" ]; then \
+      composer config --global repos.packagist composer "${COMPOSER_REGISTRY}"; \
+      composer config --global repos.packagist.org false; \
+      case "${COMPOSER_REGISTRY}" in http://*) composer config --global secure-http false ;; esac; \
+    fi
 WORKDIR /app
 COPY plugin/composer.json plugin/composer.lock* ./
 RUN composer install --no-dev --no-interaction --no-progress --prefer-dist --no-scripts --no-autoloader
@@ -27,9 +48,17 @@ COPY plugin/src ./src
 RUN composer dump-autoload --no-dev --optimize --classmap-authoritative
 
 # ---- 3. Assemble & zip ---------------------------------------------------------
-FROM alpine:3.22 AS package
+# buildpack-deps:*-curl = Debian + ca-certificates, so an https APT_MIRROR works.
+FROM ${DOCKER_REGISTRY}buildpack-deps:trixie-curl AS package
+ARG APT_MIRROR=
 ARG PLUGIN_SLUG
-RUN apk add --no-cache rsync zip
+RUN set -eux; \
+    if [ -n "${APT_MIRROR}" ]; then \
+      sed -i "s|http://deb.debian.org|${APT_MIRROR%/}|g" /etc/apt/sources.list.d/debian.sources; \
+    fi; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends rsync zip; \
+    rm -rf /var/lib/apt/lists/*
 WORKDIR /src
 COPY plugin/ ./
 COPY --from=assets /app/plugin/assets/dist ./assets/dist
