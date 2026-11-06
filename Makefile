@@ -64,11 +64,11 @@ init: | $(IMAGES) ## Rename this starter into your plugin (wizard; ARGS="--name 
 install: plugin/vendor admin-client/node_modules ## Install PHP + JS dependencies
 
 plugin/vendor: plugin/composer.json | $(IMAGES)
-	$(COMPOSER) install --no-interaction
+	$(COMPOSER) install --no-interaction --verbose
 	@touch $@
 
 admin-client/node_modules: admin-client/package.json | $(IMAGES)
-	$(NODE) npm ci --no-audit --no-fund
+	$(NODE) npm ci --no-audit --no-fund --verbose
 	@touch $@
 
 $(IMAGES):
