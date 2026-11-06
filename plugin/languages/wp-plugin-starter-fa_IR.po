@@ -47,11 +47,11 @@ msgstr "فایل‌های رابط مدیریت پیدا نشدند. دستور 
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: src/Items/ItemRepository.php:136
+#: src/Items/ItemRepository.php:138
 msgid "Could not create item."
 msgstr "ایجاد مورد ممکن نشد."
 
-#: src/Items/ItemRepository.php:162
+#: src/Items/ItemRepository.php:164
 msgid "Could not update item."
 msgstr "به‌روزرسانی مورد ممکن نشد."
 
@@ -67,47 +67,47 @@ msgstr "شناسه یکتای مورد."
 msgid "The item could not be deleted."
 msgstr "حذف مورد ممکن نشد."
 
-#: src/Rest/ItemsController.php:288
+#: src/Rest/ItemsController.php:292
 msgid "Unique identifier."
 msgstr "شناسه یکتا."
 
-#: src/Rest/ItemsController.php:294
+#: src/Rest/ItemsController.php:298
 msgid "Item title."
 msgstr "عنوان مورد."
 
-#: src/Rest/ItemsController.php:303
+#: src/Rest/ItemsController.php:307
 msgid "Item content (limited HTML allowed)."
 msgstr "محتوای مورد (HTML محدود مجاز است)."
 
-#: src/Rest/ItemsController.php:310
+#: src/Rest/ItemsController.php:314
 msgid "Publication status."
 msgstr "وضعیت انتشار."
 
-#: src/Rest/ItemsController.php:317
+#: src/Rest/ItemsController.php:321
 msgid "ID of the user who created the item."
 msgstr "شناسه کاربری که مورد را ایجاد کرده است."
 
-#: src/Rest/ItemsController.php:323
+#: src/Rest/ItemsController.php:327
 msgid "Creation date (UTC, ISO 8601)."
 msgstr "تاریخ ایجاد (UTC، ISO 8601)."
 
-#: src/Rest/ItemsController.php:330
+#: src/Rest/ItemsController.php:334
 msgid "Last update date (UTC, ISO 8601)."
 msgstr "تاریخ آخرین به‌روزرسانی (UTC، ISO 8601)."
 
-#: src/Rest/ItemsController.php:351
+#: src/Rest/ItemsController.php:355
 msgid "Limit results to a status."
 msgstr "محدود کردن نتایج به یک وضعیت."
 
-#: src/Rest/ItemsController.php:356
+#: src/Rest/ItemsController.php:360
 msgid "Sort collection by attribute."
 msgstr "مرتب‌سازی مجموعه بر اساس ویژگی."
 
-#: src/Rest/ItemsController.php:362
+#: src/Rest/ItemsController.php:366
 msgid "Sort direction."
 msgstr "جهت مرتب‌سازی."
 
-#: src/Rest/ItemsController.php:375
+#: src/Rest/ItemsController.php:379
 msgid "Item not found."
 msgstr "مورد پیدا نشد."
 
@@ -201,7 +201,7 @@ msgid "Item deleted."
 msgstr "مورد حذف شد."
 
 #: admin-client/src/features/items/DeleteItemModal.tsx:41
-#: admin-client/src/features/items/ItemsPage.tsx:135
+#: admin-client/src/features/items/ItemsPage.tsx:138
 msgid "Delete"
 msgstr "حذف"
 
@@ -218,12 +218,12 @@ msgid "Edit item"
 msgstr "ویرایش مورد"
 
 #: admin-client/src/features/items/ItemFormModal.tsx:68
-#: admin-client/src/features/items/ItemsPage.tsx:81
+#: admin-client/src/features/items/ItemsPage.tsx:84
 msgid "Add item"
 msgstr "افزودن مورد"
 
 #: admin-client/src/features/items/ItemFormModal.tsx:78
-#: admin-client/src/features/items/ItemsPage.tsx:97
+#: admin-client/src/features/items/ItemsPage.tsx:100
 msgid "Title"
 msgstr "عنوان"
 
@@ -232,8 +232,8 @@ msgid "Content"
 msgstr "محتوا"
 
 #: admin-client/src/features/items/ItemFormModal.tsx:97
-#: admin-client/src/features/items/ItemsPage.tsx:61
-#: admin-client/src/features/items/ItemsPage.tsx:98
+#: admin-client/src/features/items/ItemsPage.tsx:64
+#: admin-client/src/features/items/ItemsPage.tsx:101
 #: src/Admin/AdminPage.php:82
 #: src/Admin/AdminPage.php:83
 msgid "Status"
@@ -247,51 +247,51 @@ msgstr "ذخیره تغییرات"
 msgid "Create item"
 msgstr "ایجاد مورد"
 
-#: admin-client/src/features/items/ItemsPage.tsx:49
+#: admin-client/src/features/items/ItemsPage.tsx:52
 msgid "Search items"
 msgstr "جستجوی موارد"
 
-#: admin-client/src/features/items/ItemsPage.tsx:65
+#: admin-client/src/features/items/ItemsPage.tsx:68
 msgid "All statuses"
 msgstr "همه وضعیت‌ها"
 
-#: admin-client/src/features/items/ItemsPage.tsx:89
+#: admin-client/src/features/items/ItemsPage.tsx:92
 msgid "Loading items…"
 msgstr "در حال بارگذاری موارد…"
 
-#: admin-client/src/features/items/ItemsPage.tsx:99
+#: admin-client/src/features/items/ItemsPage.tsx:102
 msgid "Updated"
 msgstr "به‌روزرسانی"
 
-#: admin-client/src/features/items/ItemsPage.tsx:100
+#: admin-client/src/features/items/ItemsPage.tsx:103
 msgid "Actions"
 msgstr "عملیات"
 
-#: admin-client/src/features/items/ItemsPage.tsx:107
+#: admin-client/src/features/items/ItemsPage.tsx:110
 msgid "No items found."
 msgstr "هیچ موردی پیدا نشد."
 
-#: admin-client/src/features/items/ItemsPage.tsx:127
+#: admin-client/src/features/items/ItemsPage.tsx:130
 msgid "Edit"
 msgstr "ویرایش"
 
 #. translators: %s: number of items.
-#: admin-client/src/features/items/ItemsPage.tsx:148
+#: admin-client/src/features/items/ItemsPage.tsx:151
 msgid "%s item"
 msgid_plural "%s items"
 msgstr[0] "%s مورد"
 msgstr[1] "%s مورد"
 
-#: admin-client/src/features/items/ItemsPage.tsx:159
+#: admin-client/src/features/items/ItemsPage.tsx:162
 msgid "Previous"
 msgstr "قبلی"
 
 #. translators: 1: current page number, 2: total number of pages.
-#: admin-client/src/features/items/ItemsPage.tsx:164
+#: admin-client/src/features/items/ItemsPage.tsx:167
 msgid "Page %1$s of %2$s"
 msgstr "صفحه %1$s از %2$s"
 
-#: admin-client/src/features/items/ItemsPage.tsx:175
+#: admin-client/src/features/items/ItemsPage.tsx:178
 msgid "Next"
 msgstr "بعدی"
 
@@ -396,178 +396,133 @@ msgid_plural "%s seconds"
 msgstr[0] "%s ثانیه"
 msgstr[1] "%s ثانیه"
 
-#. translators: %s: number of rows.
-#: admin-client/src/features/status/StatusPage.tsx:166
-msgid "%s row"
-msgid_plural "%s rows"
-msgstr[0] "%s ردیف"
-msgstr[1] "%s ردیف"
-
-#: admin-client/src/features/status/StatusPage.tsx:169
-msgid "Missing"
-msgstr "موجود نیست"
-
-#. translators: 1: installed schema version, 2: expected schema version.
-#: admin-client/src/features/status/StatusPage.tsx:175
-msgid "%1$s (expected %2$s)"
-msgstr "%1$s (مورد انتظار: %2$s)"
-
-#: admin-client/src/features/status/StatusPage.tsx:176
-msgid "not installed"
-msgstr "نصب نشده"
-
-#: admin-client/src/features/status/StatusPage.tsx:183
-msgid "Plugin"
-msgstr "افزونه"
-
-#: admin-client/src/features/status/StatusPage.tsx:185
-#: admin-client/src/features/status/StatusPage.tsx:209
-#: admin-client/src/features/status/StatusPage.tsx:281
+#: admin-client/src/features/status/StatusPage.tsx:188
+#: admin-client/src/features/status/StatusPage.tsx:285
 msgid "Version"
 msgstr "نسخه"
 
-#: admin-client/src/features/status/StatusPage.tsx:187
-msgid "Database schema"
-msgstr "ساختار پایگاه داده"
-
-#: admin-client/src/features/status/StatusPage.tsx:192
-msgid "Items table"
-msgstr "جدول موارد"
-
-#: admin-client/src/features/status/StatusPage.tsx:197
-msgid "Assets"
-msgstr "فایل‌های رابط"
-
-#: admin-client/src/features/status/StatusPage.tsx:200
-msgid "Vite dev server (HMR)"
-msgstr "سرور توسعهٔ Vite (HMR)"
-
-#: admin-client/src/features/status/StatusPage.tsx:201
-msgid "Production build"
-msgstr "بیلد نهایی"
-
-#: admin-client/src/features/status/StatusPage.tsx:207
+#: admin-client/src/features/status/StatusPage.tsx:186
 msgid "WordPress"
 msgstr "وردپرس"
 
-#: admin-client/src/features/status/StatusPage.tsx:210
+#: admin-client/src/features/status/StatusPage.tsx:189
 msgid "Site URL"
 msgstr "نشانی سایت"
 
-#: admin-client/src/features/status/StatusPage.tsx:211
+#: admin-client/src/features/status/StatusPage.tsx:190
 msgid "Home URL"
 msgstr "نشانی خانه"
 
-#: admin-client/src/features/status/StatusPage.tsx:212
+#: admin-client/src/features/status/StatusPage.tsx:191
 msgid "Multisite"
 msgstr "چندسایته"
 
-#: admin-client/src/features/status/StatusPage.tsx:213
+#: admin-client/src/features/status/StatusPage.tsx:192
 msgid "Environment"
 msgstr "محیط"
 
-#: admin-client/src/features/status/StatusPage.tsx:214
+#: admin-client/src/features/status/StatusPage.tsx:193
 msgid "Language"
 msgstr "زبان"
 
-#: admin-client/src/features/status/StatusPage.tsx:215
+#: admin-client/src/features/status/StatusPage.tsx:194
 msgid "Timezone"
 msgstr "منطقهٔ زمانی"
 
-#: admin-client/src/features/status/StatusPage.tsx:217
+#: admin-client/src/features/status/StatusPage.tsx:196
 msgid "Permalinks"
 msgstr "پیوندهای یکتا"
 
-#: admin-client/src/features/status/StatusPage.tsx:218
+#: admin-client/src/features/status/StatusPage.tsx:197
 msgid "Plain"
 msgstr "ساده"
 
-#: admin-client/src/features/status/StatusPage.tsx:220
+#: admin-client/src/features/status/StatusPage.tsx:199
 msgid "Debug mode"
 msgstr "حالت اشکال‌زدایی"
 
-#: admin-client/src/features/status/StatusPage.tsx:221
+#: admin-client/src/features/status/StatusPage.tsx:200
 msgid "WP memory limit"
 msgstr "محدودیت حافظهٔ وردپرس"
 
-#: admin-client/src/features/status/StatusPage.tsx:222
+#: admin-client/src/features/status/StatusPage.tsx:201
 msgid "WP-Cron"
 msgstr "WP-Cron"
 
-#: admin-client/src/features/status/StatusPage.tsx:224
+#: admin-client/src/features/status/StatusPage.tsx:203
 msgid "Active theme"
 msgstr "پوستهٔ فعال"
 
-#: admin-client/src/features/status/StatusPage.tsx:227
+#: admin-client/src/features/status/StatusPage.tsx:206
 msgid "Active plugins"
 msgstr "افزونه‌های فعال"
 
-#: admin-client/src/features/status/StatusPage.tsx:232
+#: admin-client/src/features/status/StatusPage.tsx:211
 msgid "Server & PHP"
 msgstr "سرور و PHP"
 
-#: admin-client/src/features/status/StatusPage.tsx:234
+#: admin-client/src/features/status/StatusPage.tsx:213
 msgid "PHP version"
 msgstr "نسخهٔ PHP"
 
-#: admin-client/src/features/status/StatusPage.tsx:235
+#: admin-client/src/features/status/StatusPage.tsx:214
 msgid "PHP SAPI"
 msgstr "SAPI در PHP"
 
-#: admin-client/src/features/status/StatusPage.tsx:237
+#: admin-client/src/features/status/StatusPage.tsx:216
 msgid "Web server"
 msgstr "وب‌سرور"
 
-#: admin-client/src/features/status/StatusPage.tsx:238
+#: admin-client/src/features/status/StatusPage.tsx:217
 msgid "Unknown"
 msgstr "نامشخص"
 
-#: admin-client/src/features/status/StatusPage.tsx:240
+#: admin-client/src/features/status/StatusPage.tsx:219
 msgid "PHP memory limit"
 msgstr "محدودیت حافظهٔ PHP"
 
-#: admin-client/src/features/status/StatusPage.tsx:242
+#: admin-client/src/features/status/StatusPage.tsx:221
 msgid "Max execution time"
 msgstr "حداکثر زمان اجرا"
 
-#: admin-client/src/features/status/StatusPage.tsx:245
+#: admin-client/src/features/status/StatusPage.tsx:224
 msgid "Max upload size"
 msgstr "حداکثر حجم بارگذاری"
 
-#: admin-client/src/features/status/StatusPage.tsx:246
+#: admin-client/src/features/status/StatusPage.tsx:225
 msgid "Max POST size"
 msgstr "حداکثر حجم POST"
 
-#: admin-client/src/features/status/StatusPage.tsx:248
+#: admin-client/src/features/status/StatusPage.tsx:227
 msgid "Extensions"
 msgstr "افزونه‌های PHP"
 
-#: admin-client/src/features/status/StatusPage.tsx:251
+#: admin-client/src/features/status/StatusPage.tsx:230
 msgid "All loaded"
 msgstr "همه بارگذاری شده‌اند"
 
 #. translators: %s: comma-separated list of PHP extension names.
-#: admin-client/src/features/status/StatusPage.tsx:254
+#: admin-client/src/features/status/StatusPage.tsx:233
 msgid "Missing: %s"
 msgstr "موجود نیست: %s"
 
-#: admin-client/src/features/status/StatusPage.tsx:278
+#: admin-client/src/features/status/StatusPage.tsx:282
 msgid "Database"
 msgstr "پایگاه داده"
 
-#: admin-client/src/features/status/StatusPage.tsx:280
+#: admin-client/src/features/status/StatusPage.tsx:284
 msgid "Server"
 msgstr "سرور"
 
-#: admin-client/src/features/status/StatusPage.tsx:282
+#: admin-client/src/features/status/StatusPage.tsx:286
 msgid "Table prefix"
 msgstr "پیشوند جدول‌ها"
 
-#: admin-client/src/features/status/StatusPage.tsx:283
+#: admin-client/src/features/status/StatusPage.tsx:287
 msgid "Charset"
 msgstr "مجموعه نویسه"
 
-#: admin-client/src/features/status/StatusPage.tsx:284
+#: admin-client/src/features/status/StatusPage.tsx:288
 msgid "Collation"
 msgstr "ترتیب‌بندی"
 

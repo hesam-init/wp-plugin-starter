@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-06T10:02:04+00:00\n"
+"POT-Creation-Date: 2026-11-06T11:38:43+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-plugin-starter\n"
@@ -83,7 +83,7 @@ msgid "Item deleted."
 msgstr ""
 
 #: admin-client/src/features/items/DeleteItemModal.tsx:41
-#: admin-client/src/features/items/ItemsPage.tsx:135
+#: admin-client/src/features/items/ItemsPage.tsx:138
 msgid "Delete"
 msgstr ""
 
@@ -100,12 +100,12 @@ msgid "Edit item"
 msgstr ""
 
 #: admin-client/src/features/items/ItemFormModal.tsx:68
-#: admin-client/src/features/items/ItemsPage.tsx:81
+#: admin-client/src/features/items/ItemsPage.tsx:84
 msgid "Add item"
 msgstr ""
 
 #: admin-client/src/features/items/ItemFormModal.tsx:78
-#: admin-client/src/features/items/ItemsPage.tsx:97
+#: admin-client/src/features/items/ItemsPage.tsx:100
 msgid "Title"
 msgstr ""
 
@@ -114,8 +114,8 @@ msgid "Content"
 msgstr ""
 
 #: admin-client/src/features/items/ItemFormModal.tsx:97
-#: admin-client/src/features/items/ItemsPage.tsx:61
-#: admin-client/src/features/items/ItemsPage.tsx:98
+#: admin-client/src/features/items/ItemsPage.tsx:64
+#: admin-client/src/features/items/ItemsPage.tsx:101
 #: src/Admin/AdminPage.php:82
 #: src/Admin/AdminPage.php:83
 msgid "Status"
@@ -129,51 +129,51 @@ msgstr ""
 msgid "Create item"
 msgstr ""
 
-#: admin-client/src/features/items/ItemsPage.tsx:49
+#: admin-client/src/features/items/ItemsPage.tsx:52
 msgid "Search items"
 msgstr ""
 
-#: admin-client/src/features/items/ItemsPage.tsx:65
+#: admin-client/src/features/items/ItemsPage.tsx:68
 msgid "All statuses"
 msgstr ""
 
-#: admin-client/src/features/items/ItemsPage.tsx:89
+#: admin-client/src/features/items/ItemsPage.tsx:92
 msgid "Loading items…"
 msgstr ""
 
-#: admin-client/src/features/items/ItemsPage.tsx:99
+#: admin-client/src/features/items/ItemsPage.tsx:102
 msgid "Updated"
 msgstr ""
 
-#: admin-client/src/features/items/ItemsPage.tsx:100
+#: admin-client/src/features/items/ItemsPage.tsx:103
 msgid "Actions"
 msgstr ""
 
-#: admin-client/src/features/items/ItemsPage.tsx:107
+#: admin-client/src/features/items/ItemsPage.tsx:110
 msgid "No items found."
 msgstr ""
 
-#: admin-client/src/features/items/ItemsPage.tsx:127
+#: admin-client/src/features/items/ItemsPage.tsx:130
 msgid "Edit"
 msgstr ""
 
 #. translators: %s: number of items.
-#: admin-client/src/features/items/ItemsPage.tsx:148
+#: admin-client/src/features/items/ItemsPage.tsx:151
 msgid "%s item"
 msgid_plural "%s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin-client/src/features/items/ItemsPage.tsx:159
+#: admin-client/src/features/items/ItemsPage.tsx:162
 msgid "Previous"
 msgstr ""
 
 #. translators: 1: current page number, 2: total number of pages.
-#: admin-client/src/features/items/ItemsPage.tsx:164
+#: admin-client/src/features/items/ItemsPage.tsx:167
 msgid "Page %1$s of %2$s"
 msgstr ""
 
-#: admin-client/src/features/items/ItemsPage.tsx:175
+#: admin-client/src/features/items/ItemsPage.tsx:178
 msgid "Next"
 msgstr ""
 
@@ -278,178 +278,133 @@ msgid_plural "%s seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#. translators: %s: number of rows.
-#: admin-client/src/features/status/StatusPage.tsx:166
-msgid "%s row"
-msgid_plural "%s rows"
-msgstr[0] ""
-msgstr[1] ""
-
-#: admin-client/src/features/status/StatusPage.tsx:169
-msgid "Missing"
-msgstr ""
-
-#. translators: 1: installed schema version, 2: expected schema version.
-#: admin-client/src/features/status/StatusPage.tsx:175
-msgid "%1$s (expected %2$s)"
-msgstr ""
-
-#: admin-client/src/features/status/StatusPage.tsx:176
-msgid "not installed"
-msgstr ""
-
-#: admin-client/src/features/status/StatusPage.tsx:183
-msgid "Plugin"
-msgstr ""
-
-#: admin-client/src/features/status/StatusPage.tsx:185
-#: admin-client/src/features/status/StatusPage.tsx:209
-#: admin-client/src/features/status/StatusPage.tsx:281
-msgid "Version"
-msgstr ""
-
-#: admin-client/src/features/status/StatusPage.tsx:187
-msgid "Database schema"
-msgstr ""
-
-#: admin-client/src/features/status/StatusPage.tsx:192
-msgid "Items table"
-msgstr ""
-
-#: admin-client/src/features/status/StatusPage.tsx:197
-msgid "Assets"
-msgstr ""
-
-#: admin-client/src/features/status/StatusPage.tsx:200
-msgid "Vite dev server (HMR)"
-msgstr ""
-
-#: admin-client/src/features/status/StatusPage.tsx:201
-msgid "Production build"
-msgstr ""
-
-#: admin-client/src/features/status/StatusPage.tsx:207
+#: admin-client/src/features/status/StatusPage.tsx:186
 msgid "WordPress"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:210
+#: admin-client/src/features/status/StatusPage.tsx:188
+#: admin-client/src/features/status/StatusPage.tsx:285
+msgid "Version"
+msgstr ""
+
+#: admin-client/src/features/status/StatusPage.tsx:189
 msgid "Site URL"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:211
+#: admin-client/src/features/status/StatusPage.tsx:190
 msgid "Home URL"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:212
+#: admin-client/src/features/status/StatusPage.tsx:191
 msgid "Multisite"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:213
+#: admin-client/src/features/status/StatusPage.tsx:192
 msgid "Environment"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:214
+#: admin-client/src/features/status/StatusPage.tsx:193
 msgid "Language"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:215
+#: admin-client/src/features/status/StatusPage.tsx:194
 msgid "Timezone"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:217
+#: admin-client/src/features/status/StatusPage.tsx:196
 msgid "Permalinks"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:218
+#: admin-client/src/features/status/StatusPage.tsx:197
 msgid "Plain"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:220
+#: admin-client/src/features/status/StatusPage.tsx:199
 msgid "Debug mode"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:221
+#: admin-client/src/features/status/StatusPage.tsx:200
 msgid "WP memory limit"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:222
+#: admin-client/src/features/status/StatusPage.tsx:201
 msgid "WP-Cron"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:224
+#: admin-client/src/features/status/StatusPage.tsx:203
 msgid "Active theme"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:227
+#: admin-client/src/features/status/StatusPage.tsx:206
 msgid "Active plugins"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:232
+#: admin-client/src/features/status/StatusPage.tsx:211
 msgid "Server & PHP"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:234
+#: admin-client/src/features/status/StatusPage.tsx:213
 msgid "PHP version"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:235
+#: admin-client/src/features/status/StatusPage.tsx:214
 msgid "PHP SAPI"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:237
+#: admin-client/src/features/status/StatusPage.tsx:216
 msgid "Web server"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:238
+#: admin-client/src/features/status/StatusPage.tsx:217
 msgid "Unknown"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:240
+#: admin-client/src/features/status/StatusPage.tsx:219
 msgid "PHP memory limit"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:242
+#: admin-client/src/features/status/StatusPage.tsx:221
 msgid "Max execution time"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:245
+#: admin-client/src/features/status/StatusPage.tsx:224
 msgid "Max upload size"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:246
+#: admin-client/src/features/status/StatusPage.tsx:225
 msgid "Max POST size"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:248
+#: admin-client/src/features/status/StatusPage.tsx:227
 msgid "Extensions"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:251
+#: admin-client/src/features/status/StatusPage.tsx:230
 msgid "All loaded"
 msgstr ""
 
 #. translators: %s: comma-separated list of PHP extension names.
-#: admin-client/src/features/status/StatusPage.tsx:254
+#: admin-client/src/features/status/StatusPage.tsx:233
 msgid "Missing: %s"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:278
+#: admin-client/src/features/status/StatusPage.tsx:282
 msgid "Database"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:280
+#: admin-client/src/features/status/StatusPage.tsx:284
 msgid "Server"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:282
+#: admin-client/src/features/status/StatusPage.tsx:286
 msgid "Table prefix"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:283
+#: admin-client/src/features/status/StatusPage.tsx:287
 msgid "Charset"
 msgstr ""
 
-#: admin-client/src/features/status/StatusPage.tsx:284
+#: admin-client/src/features/status/StatusPage.tsx:288
 msgid "Collation"
 msgstr ""
 
@@ -486,11 +441,11 @@ msgstr ""
 msgid "Admin assets are missing. Run \"make dev\" (development) or \"make build\" (production)."
 msgstr ""
 
-#: src/Items/ItemRepository.php:136
+#: src/Items/ItemRepository.php:138
 msgid "Could not create item."
 msgstr ""
 
-#: src/Items/ItemRepository.php:162
+#: src/Items/ItemRepository.php:164
 msgid "Could not update item."
 msgstr ""
 
@@ -506,47 +461,47 @@ msgstr ""
 msgid "The item could not be deleted."
 msgstr ""
 
-#: src/Rest/ItemsController.php:288
+#: src/Rest/ItemsController.php:292
 msgid "Unique identifier."
 msgstr ""
 
-#: src/Rest/ItemsController.php:294
+#: src/Rest/ItemsController.php:298
 msgid "Item title."
 msgstr ""
 
-#: src/Rest/ItemsController.php:303
+#: src/Rest/ItemsController.php:307
 msgid "Item content (limited HTML allowed)."
 msgstr ""
 
-#: src/Rest/ItemsController.php:310
+#: src/Rest/ItemsController.php:314
 msgid "Publication status."
 msgstr ""
 
-#: src/Rest/ItemsController.php:317
+#: src/Rest/ItemsController.php:321
 msgid "ID of the user who created the item."
 msgstr ""
 
-#: src/Rest/ItemsController.php:323
+#: src/Rest/ItemsController.php:327
 msgid "Creation date (UTC, ISO 8601)."
 msgstr ""
 
-#: src/Rest/ItemsController.php:330
+#: src/Rest/ItemsController.php:334
 msgid "Last update date (UTC, ISO 8601)."
 msgstr ""
 
-#: src/Rest/ItemsController.php:351
+#: src/Rest/ItemsController.php:355
 msgid "Limit results to a status."
 msgstr ""
 
-#: src/Rest/ItemsController.php:356
+#: src/Rest/ItemsController.php:360
 msgid "Sort collection by attribute."
 msgstr ""
 
-#: src/Rest/ItemsController.php:362
+#: src/Rest/ItemsController.php:366
 msgid "Sort direction."
 msgstr ""
 
-#: src/Rest/ItemsController.php:375
+#: src/Rest/ItemsController.php:379
 msgid "Item not found."
 msgstr ""
 
