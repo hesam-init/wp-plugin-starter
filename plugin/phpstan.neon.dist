@@ -6,3 +6,8 @@ parameters:
     - uninstall.php
   bootstrapFiles:
     - phpstan-bootstrap.php
+  ignoreErrors:
+    # The PHP < 8.1 bail-out is a runtime guard; PHPStan only sees the PHP version it runs on.
+    - identifier: if.alwaysFalse
+      path: wp-plugin-starter.php
+      count: 1

@@ -33,6 +33,8 @@ final class ItemRepository {
 	 *
 	 * @param int $id Item ID.
 	 * @return ItemRow|null
+	 *
+	 * @phpstan-impure Reads the database/cache, so repeated calls may differ (e.g. after update()).
 	 */
 	public function find( int $id ): ?array {
 		global $wpdb;
@@ -88,7 +90,7 @@ final class ItemRepository {
 		$table     = Installer::items_table();
 		$where_sql = implode( ' AND ', $where );
 
-		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $where_sql only holds placeholders; $order is whitelisted.
+		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- $where_sql only holds placeholders, filled by the spread $params; $order is whitelisted.
 		$total = (int) $wpdb->get_var(
 			$wpdb->prepare( "SELECT COUNT(*) FROM %i WHERE {$where_sql}", $table, ...$params )
 		);
@@ -101,7 +103,7 @@ final class ItemRepository {
 			),
 			ARRAY_A
 		);
-		// phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+		// phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber
 
 		return array(
 			'items' => array_map( array( $this, 'hydrate' ), is_array( $rows ) ? $rows : array() ),

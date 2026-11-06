@@ -66,8 +66,10 @@ final class Vite {
 	/**
 	 * Enqueue the entry point (JS + CSS). Returns false if assets are missing.
 	 *
-	 * @param string       $handle Script handle; inline data can be attached to it.
-	 * @param list<string> $deps   Script dependencies (e.g. WordPress packages used as globals).
+	 * @param string   $handle Script handle; inline data can be attached to it.
+	 * @param string[] $deps   Script dependencies (e.g. WordPress packages used as globals).
+	 *
+	 * @phpstan-param list<string> $deps
 	 */
 	public function enqueue( string $handle, array $deps = array() ): bool {
 		$dev = $this->dev_server_url();
@@ -92,9 +94,11 @@ final class Vite {
 	/**
 	 * Dev: load @vite/client and the raw entry from the dev server.
 	 *
-	 * @param string       $handle Script handle.
-	 * @param string       $dev    Dev server URL.
-	 * @param list<string> $deps   Script dependencies.
+	 * @param string   $handle Script handle.
+	 * @param string   $dev    Dev server URL.
+	 * @param string[] $deps   Script dependencies.
+	 *
+	 * @phpstan-param list<string> $deps
 	 */
 	private function enqueue_dev( string $handle, string $dev, array $deps ): bool {
 		$client = $handle . '-vite-client';
@@ -115,8 +119,10 @@ final class Vite {
 	/**
 	 * Production: resolve hashed files from the manifest.
 	 *
-	 * @param string       $handle Script handle.
-	 * @param list<string> $deps   Script dependencies.
+	 * @param string   $handle Script handle.
+	 * @param string[] $deps   Script dependencies.
+	 *
+	 * @phpstan-param list<string> $deps
 	 */
 	private function enqueue_build( string $handle, array $deps ): bool {
 		$manifest = $this->manifest();

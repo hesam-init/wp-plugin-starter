@@ -40,7 +40,7 @@ final class Lifecycle {
 	 * Runs on deactivation. Keep data; only clean up transient state here.
 	 */
 	public static function deactivate(): void {
-		// e.g. wp_clear_scheduled_hook( 'wp_plugin_starter_cron' );
+		// For example: wp_clear_scheduled_hook( 'wp_plugin_starter_cron' ).
 	}
 
 	/**

@@ -243,7 +243,11 @@ final class ItemsController extends AbstractController {
 	 * @phpstan-param WP_REST_Request<array<string, mixed>> $request
 	 */
 	public function prepare_item_for_response( $item, $request ): WP_REST_Response {
-		/** @var ItemRow $item */
+		/**
+		 * Rows come from ItemRepository::hydrate().
+		 *
+		 * @var ItemRow $item
+		 */
 		$data = array(
 			'id'        => $item['id'],
 			'title'     => $item['title'],
